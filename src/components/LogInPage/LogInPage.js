@@ -27,6 +27,7 @@ const LogInPage = () => {
           <input type="password" id="password-input" name="password-input"/>
           <input type="submit" id="submit-input"/>
         </form>
+        <a href="#">Or Regsiter a new account here instead</a>
 
       </div>
 

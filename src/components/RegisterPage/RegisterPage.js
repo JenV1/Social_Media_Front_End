@@ -2,16 +2,29 @@ import React from 'react';
 import './RegisterPage.css';
 
 
+const RegisterPage = () => {
 
 
-const RegisterPage = () => (
-  <div className="RegisterPage">
-    RegisterPage Component
-  </div>
-);
+  return(
+    <div className='RegisterPage'>
+      <h1>Register:</h1>
 
-RegisterPage.propTypes = {};
+      <form action="" className="register_form">
+        
 
-RegisterPage.defaultProps = {};
+
+
+      </form>
+
+    
+    
+    </div>
+
+  );
+
+
+}
+
+
 
 export default RegisterPage;
