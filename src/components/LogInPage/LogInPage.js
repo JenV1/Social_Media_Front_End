@@ -83,7 +83,6 @@ const LogInPage = () => {
           <p id="password-error-message"></p>
           <input type="submit" id="submit-input"/>
         </form>
-        <a href="#">Or Regsiter a new account here instead</a>
 
         <a href="/register">Or register a new account here</a>
 

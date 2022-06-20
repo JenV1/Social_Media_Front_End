@@ -10,3 +10,12 @@
     
 }
 
+.register_form{
+    background: #94B49F;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 30vw;
+}
+
