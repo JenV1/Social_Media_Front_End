@@ -1,1 +1,41 @@
-.LandingPage {}
+#LandingPage {
+    
+    background-color: #FCF8E8;
+    font-size: 250px;
+
+
+}
+
+h1{
+    color: #515E63;
+    text-align: center;
+    padding: 200px ;
+
+}
+
+#btn{
+    -webkit-border-radius: 18;
+    -moz-border-radius: 18;
+    border-radius: 18px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+    background: #789395;
+    padding: 20px 20px 20px 20px;
+    text-decoration: none;
+    display: block-inline;
+  }
+  
+  #btn:hover {
+    background: #E5E3C9;
+    text-decoration: none;
+
+  }
+
+  #landing-button{
+    background-color: #FCF8E8;
+    text-align: center;
+    padding: 100px;
+
+
+  }

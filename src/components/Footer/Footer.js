@@ -9,8 +9,9 @@ import './Footer.css';
   
   const Footer = () => {
     return (
-      <div id='Footer' className="bottom">
-      <MDBFooter className="font-small pt-4 mt-4">
+
+      <footer id='Footer' >
+      <MDBFooter className="font-small pt-4">
         <MDBContainer fluid className="text-center text-md-left">
           <MDBRow>
             <MDBCol md="6">
@@ -44,7 +45,7 @@ import './Footer.css';
           </MDBContainer>
         </div>
       </MDBFooter>
-      </div>
+      </footer>
     );
   }
   
