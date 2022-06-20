@@ -11,6 +11,7 @@ import {
 import LandingPage from './components/LandingPage/LandingPage';
 import LogInPage from './components/LogInPage/LogInPage';
 import { useState } from 'react';
+import RegisterPage from './components/RegisterPage/RegisterPage';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
       <Routes>
           <Route exact path="/" element={<LandingPage />} />
           <Route path="/login" element={<LogInPage />}/>
+          <Route path="/register" element={<RegisterPage />} />
       </Routes>
     </Router>
    </>
