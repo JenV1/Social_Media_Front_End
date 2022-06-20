@@ -1,1 +1,6 @@
-.Header {}
+.Header {
+    display: block;
+    padding-right: 800px;
+    padding-left: 50px;
+    background-color: #C9D8B6;
+}
