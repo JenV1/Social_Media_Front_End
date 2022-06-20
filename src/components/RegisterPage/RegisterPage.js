@@ -1,15 +1,30 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import './RegisterPage.css';
 
-const RegisterPage = () => (
-  <div className="RegisterPage">
-    RegisterPage Component
-  </div>
-);
 
-RegisterPage.propTypes = {};
+const RegisterPage = () => {
 
-RegisterPage.defaultProps = {};
+
+  return(
+    <div className='RegisterPage'>
+      <h1>Register:</h1>
+
+      <form action="" className="register_form">
+        
+
+
+
+      </form>
+
+    
+    
+    </div>
+
+  );
+
+
+}
+
+
 
 export default RegisterPage;
