@@ -12,6 +12,7 @@ const LogInPage = () => {
           <input type="text" id="username-input" placeholder='Username/email....' name="username-input"/>
           <label htmlFor="password-input">Password: </label>
           <input type="password" id="password-input" name="password-input"/>
+          <input type="submit" id="submit-input"/>
         </form>
 
       </div>
