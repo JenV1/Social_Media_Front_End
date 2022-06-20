@@ -13,6 +13,7 @@ import LogInPage from './components/LogInPage/LogInPage';
 import { useState } from 'react';
 import RegisterPage from './components/RegisterPage/RegisterPage';
 import SettingsPage from './components/SettingsPage/SettingsPage';
+import FeedPage from './components/FeedPage/FeedPage';
 
 function App() {
 
