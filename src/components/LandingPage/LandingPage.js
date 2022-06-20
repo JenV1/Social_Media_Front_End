@@ -6,22 +6,20 @@ import Footer from '../Footer/Footer';
 
 import { Link } from "react-router-dom";
 
-const LandingPage = () => (
-  <div className="LandingPage">
-    <Header />
-
-    <h1>Landing Page</h1>
-    <ul>
-      <li>
-        <Link to="/"></Link>
-      </li>
-      <li>
-        <Link to="/login">Login</Link>
-      </li>
-    </ul>
-    <Footer />
-  </div>
-);
+const LandingPage = () => {
+  const adjustLanding = {
+    marginBottom: "0px"
+  }
+return (
+  <div >
+    <div><Header /></div>
+    <div id='LandingPage'>
+      <h1 style={adjustLanding}>Welcome</h1>
+    </div>
+    <div id='landing-button'><button id='btn' type='button'>Log In / Register</button></div>
+    <div><Footer /></div>
+  </div>)
+};
 
 LandingPage.propTypes = {};
 
