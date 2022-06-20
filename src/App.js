@@ -10,6 +10,7 @@ import {
 
 import LandingPage from './components/LandingPage/LandingPage';
 import LogInPage from './components/LogInPage/LogInPage';
+import FeedPage from './components/FeedPage/FeedPage';
 
 function App() {
   return (
