@@ -1,4 +1,3 @@
-import UpdateField from "./UpdateField";
 import { useState, useEffect } from "react";
 import UpdateForm from "./UpdateForm";
 
@@ -34,18 +33,6 @@ const UpdateDetails = () => {
 
         setShowUpdateFields(false);
         setShowUpdateDetailsButton(true);
-
-        // var apiUsers = [];
-        // fetch("http://localhost:8080/list_all_users")
-        // .then(response => response.json())
-        // .then(response => {
-        //     apiUsers = response;
-        //     const loggedInUser = apiUsers.filter(
-        //         user => user.userLoggedIn
-        //     )
-        //     setUser(loggedInUser[0])
-        // })
-        // .catch(error => console.log(error))
 
     }
 
