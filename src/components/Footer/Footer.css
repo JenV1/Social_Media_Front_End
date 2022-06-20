@@ -1,1 +1,14 @@
-.Footer {}
+#Footer {
+    background-color: #B4CFB0 ;
+
+}
+
+#footer-intro{
+    font-size: 40px;
+    color: #515E63;
+    
+}
+
+.footer-text{
+    color: #515E63;
+}
