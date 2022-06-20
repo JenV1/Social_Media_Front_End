@@ -1,1 +1,7 @@
-.SettingsPage {}
+.SettingsPage {
+    background-color: #FCF8E8;
+}
+
+h1{
+    padding: 20px;
+}
