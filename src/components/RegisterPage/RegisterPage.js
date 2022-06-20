@@ -1,5 +1,7 @@
 import React from 'react';
 import './RegisterPage.css';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 
 const RegisterPage = () => {
 
@@ -21,6 +23,9 @@ const RegisterPage = () => {
 
 
   return(
+    <>
+    <Header />
+
   <div className="RegisterPage">
     <h1>Register Page: </h1>
     <form onSubmit={handleFormSubmit} action="/" className="register_form">
@@ -49,6 +54,9 @@ const RegisterPage = () => {
 
     <a href="/login">Or log in to an existing account here</a>
   </div>
+
+  <Footer />
+    </>
   )
 };
 

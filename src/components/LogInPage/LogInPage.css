@@ -1,6 +1,18 @@
-.LogInPage { padding: 30px;}
+.LogInPage { 
+    padding: 30px;
+    position: absolute;
+    top: 50px;
+    height: 100vh;
+    width: 100vw;
+    background: #E5E3C9;
+}
 
 input{
     display: block;
     margin: 20px;
+}
+
+.wrong{
+    border: 2px solid red;
+    border-radius: 5px;
 }

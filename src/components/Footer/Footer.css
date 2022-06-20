@@ -12,3 +12,8 @@
 .footer-text{
     color: #515E63;
 }
+
+.bottom{
+    position: absolute;
+    top: 200vh
+}

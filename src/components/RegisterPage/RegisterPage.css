@@ -1,2 +1,12 @@
-.RegisterPage {margin: 20px}
+.RegisterPage {
+    top: 100px;
+    bottom: 0px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 20px;
+    background: #E5E3C9;
+    width: 100vw;
+    height: 150vh;
+    
+}
 
