@@ -1,9 +1,6 @@
 import React from 'react';
 import './RegisterPage.css';
 
-
-
-
 const RegisterPage = () => {
 
   const handleFormSubmit = (event) => {
@@ -53,10 +50,8 @@ const RegisterPage = () => {
     <a href="/login">Or log in to an existing account here</a>
   </div>
   )
-  };
+};
 
-RegisterPage.propTypes = {};
 
-RegisterPage.defaultProps = {};
 
 export default RegisterPage;
