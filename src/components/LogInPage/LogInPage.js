@@ -14,7 +14,7 @@ const LogInPage = () => {
     fetch(`http://127.0.0.1:8080/logUserIn?username=${username}&password=${password}`, options)
       .catch(err => console.log(err))
 
-
+    
   }
 
   return(
