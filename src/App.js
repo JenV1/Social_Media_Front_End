@@ -10,6 +10,7 @@ import {
 
 import LandingPage from './components/LandingPage/LandingPage';
 import LogInPage from './components/LogInPage/LogInPage';
+import SettingsPage from './components/SettingsPage/SettingsPage';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Routes>
           <Route exact path="/" element={<LandingPage />} />
           <Route path="/login" element={<LogInPage />}/>
+          <Route path="/settings" element={<SettingsPage />} />
       </Routes>
     </Router>
    </>
