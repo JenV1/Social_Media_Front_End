@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './SettingsPage.css';
+import UpdateDetails from './UpdateDetails';
 
 const SettingsPage = () => (
   <div className="SettingsPage">
-    SettingsPage Component
+    <h1>Settings Page</h1>
+    <UpdateDetails />
   </div>
 );
 
