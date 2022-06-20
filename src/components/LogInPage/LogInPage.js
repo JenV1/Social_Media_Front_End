@@ -73,8 +73,8 @@ const LogInPage = () => {
     
     <Header />
     <div className="LogInPage">
-        <h1>Log In Page</h1>
-        <form onSubmit={handleLogInSubmit} action="/">
+        <h1 id="loginPage--header" >Log In Page</h1>
+        <form id="loginPage--form" onSubmit={handleLogInSubmit} action="/">
           <label id="username-input-label" htmlFor='username-input'>Username: </label>
           <input onChange={event => setUsername(event.target.value)} value={username} type="text" id="username-input" placeholder='Username/email....' name="username-input"/>
           <p id="username-error-message"></p>
@@ -82,9 +82,9 @@ const LogInPage = () => {
           <input onChange={event => setPassword(event.target.value)} type="password" id="password-input" name="password-input" value={password}/>
           <p id="password-error-message"></p>
           <input type="submit" id="submit-input"/>
+        <a href="/register">Or register a new account here</a>
         </form>
 
-        <a href="/register">Or register a new account here</a>
 
       </div>
       <Footer />
