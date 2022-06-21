@@ -80,9 +80,9 @@ const LogInPage = () => {
           <input onChange={event => setUsername(event.target.value)} value={username} type="text" id="username-input" placeholder='Username/email....' name="username-input"/>
           <p id="username-error-message"></p>
           <label id="password-input-label" htmlFor="password-input">Password: </label>
-          <input onChange={event => setPassword(event.target.value)} type="password" id="password-input" name="password-input" value={password}/>
+          <input onChange={event => setPassword(event.target.value)} type="password" id="password-input" name="password-input" placeholder="Password..." value={password}/>
           <p id="password-error-message"></p>
-          <input type="submit" id="submit-input"/>
+          <input type="submit" class="submit-input"/>
         <a href="/register">Or register a new account here</a>
         </form>
 

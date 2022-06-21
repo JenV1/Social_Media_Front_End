@@ -4,7 +4,7 @@
     padding: 20px;
     background: #E5E3C9;
     width: 100vw;
-    height: 150vh;
+    height: 120vh;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -72,4 +72,16 @@
 .red-border{
     border: 2px solid red;
     outline: none;
+}
+
+#register_page--business-checkbox{
+    margin-top: 10px
+}
+
+#business-checkbox--label{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    display: grid;
+    grid-template-columns: 50% 50%;
 }
