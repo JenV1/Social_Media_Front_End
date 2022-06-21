@@ -35,7 +35,6 @@ import AddComment from './AddComment';
         .catch(err => console.log(err))
     }
 
-
     return(
         <>
             <h2><span style={{cursor:'pointer'}} onClick={() => {
@@ -80,7 +79,18 @@ import AddComment from './AddComment';
                 comments.map(comment => {
                     if (isShowingComments) {
                         return <>
-                        <p key={comment.id} className="comment">&#128073;{` ${comment.commentContent}`}</p>
+                        <div className="comment">
+                        <p className={comment.heartByUser ? 'hearted-comment' : ''} key={comment.id} >&#128073;{` ${comment.commentContent}`} 
+                        {post.user.userLoggedIn ? <span style={{cursor:'pointer'}}
+                        onClick={() => {
+                            const options = {
+                                method: "PUT",
+                            }
+                    
+                            fetch(`http://127.0.0.1:8080/heartComment?userName=${user.name}&ID_of_comment_to_be_hearted=${comment.id}`, options)
+                            .catch(err => console.log(err));
+                        }}>&#128155;</span> : null}</p>
+                        </div>
                         </>
                     }
                 })

@@ -4,10 +4,13 @@ import {useState, useEffect} from "react";
 import axios from 'axios';
 
 import AddNewPost from "./AddNewPost";
+import './PostList.css';
+
 
 const PostList = () => {
 
     const [user, setUser] = useState(null)
+    const [nextPostID, setNextPostID] = useState(1);
     
     useEffect(() => {
         var apiUsers = [];
@@ -44,6 +47,7 @@ const PostList = () => {
         .then(response => {
             const posts = response.data;
             setPosts(posts);
+            setNextPostID(posts[posts.length - 1].id +1);
         })
         .catch(err => console.log(err));
     }, [posts]);
@@ -54,13 +58,13 @@ const PostList = () => {
         <>
             <button onClick={handleFilterByBusiness}>filter by business</button>
 
-            <AddNewPost user={user} numberOfPosts={posts.length}/>
+            <AddNewPost user={user} nextID={nextPostID} />
 
-            <ul>
+            <ul className="post-container">
                 {
                     posts.map(post => {
                         if ((post.businessAccount && filteredByBusiness) || !filteredByBusiness) {
-                            return <li key={post.id}>
+                            return <li className="post-item" key={post.id}>
                                 <Posts post={post} user={user} comments={comments.filter(comment => comment.post.id === post.id)}/>
                             </li>
                         }

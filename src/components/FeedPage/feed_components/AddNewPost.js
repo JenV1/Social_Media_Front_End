@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 
-const AddNewPost = ({numberOfPosts, user}) => {
+const AddNewPost = ({nextID, user}) => {
 
     const [postContent, setPostContent] = useState("");
     const [postType, setPostType] = useState(1);
@@ -9,12 +9,11 @@ const AddNewPost = ({numberOfPosts, user}) => {
     const handlePostTypeChange = (event) => setPostType(event.target.value);
 
     const createNewPost = (event) => {
-
         const options = {
           method: "POST",
         }
     
-        fetch(`http://127.0.0.1:8080/addNewPost?id=${numberOfPosts+1}&content=${postContent}&isBusiness=${user.businessAccount}&post_type=${postType}&user_id=${user.id}`, options)
+        fetch(`http://127.0.0.1:8080/addNewPost?id=${nextID}&content=${postContent}&isBusiness=${user.businessAccount}&post_type=${postType}&user_id=${user.id}`, options)
           .catch(err => console.log(err))
 
 
@@ -36,7 +35,7 @@ const AddNewPost = ({numberOfPosts, user}) => {
                         <option value="5">EVENT PLAN</option>
                     </select>
                 </label>
-            <input type="submit" />
+            <input type="submit" value="Create Post"/>
 
             </form>
         </>

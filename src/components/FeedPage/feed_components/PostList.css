@@ -1,0 +1,17 @@
+.post-container {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+}
+
+.post-item {
+    border: 1px solid black;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.hearted-comment {
+    font-style: italic;
+    font-weight: bold;
+}
