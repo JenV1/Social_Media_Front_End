@@ -30,9 +30,11 @@ import AddComment from './AddComment';
             method: "DELETE",
         }
 
-        fetch(`http://127.0.0.1:8080/deletePost/${post.id}`, options)
-        .then(response => window.location.reload())
-        .catch(err => console.log(err))
+        if (window.confirm("Are you sure you want to delete this post?") ) {
+            fetch(`http://127.0.0.1:8080/deletePost/${post.id}`, options)
+            .then(response => window.location.reload())
+            .catch(err => console.log(err)) 
+        }
     }
 
     const turnOffEditing = () => setIsEditing(false);

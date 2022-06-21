@@ -56,11 +56,12 @@ const PostList = () => {
 
     return (
         <>
-            <button onClick={handleFilterByBusiness}>filter by business</button>
+            <div className="button-and-post-container">
+                <button className="business-btn" onClick={handleFilterByBusiness}>Business Only</button>
 
-            <AddNewPost user={user} nextID={nextPostID} />
-
-            <ul className="post-container">
+                <AddNewPost user={user} nextID={nextPostID} />
+            </div>
+            <div className="post-container">
                 {
                     posts.map(post => {
                         if ((post.businessAccount && filteredByBusiness) || !filteredByBusiness) {
@@ -70,7 +71,7 @@ const PostList = () => {
                         }
                     })
                 }
-            </ul>
+            </div>
         </>
     )
 }
