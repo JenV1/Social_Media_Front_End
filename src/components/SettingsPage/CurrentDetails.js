@@ -14,7 +14,7 @@ const CurrentDetails = ({user, hiddenPassword}) => {
     return(
         <section className="ProfileInformation">
             <h3 id="ProfileInformation-heading">Profile Information</h3>
-            <p id="ProfileInformation-name"><b>Name: </b> {name}</p>
+            <p id="ProfileInformation-name"><b>Username: </b> {name}</p>
             <p id="ProfileInformation-password"><b>Password: </b> {showPassword ? password : hiddenPassword}</p>
             <button onClick={handleClick}>{showPassword ? "Hide" : "Show"} password</button>
             <p id="ProfileInformation-DOB"><b>Date of Birth: </b> {date_of_birth}</p>

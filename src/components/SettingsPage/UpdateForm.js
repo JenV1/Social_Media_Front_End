@@ -1,7 +1,7 @@
 import { useState } from "react";
 import UpdateField from "./UpdateField";
 
-const UpdateForm = ({user, handleFormSubmit}) => {
+const UpdateForm = ({user}) => {
 
     const {id, name, company, password, date_of_birth} = user;
 
@@ -38,17 +38,16 @@ const UpdateForm = ({user, handleFormSubmit}) => {
         .then(result => console.log(result))
         .catch(error => console.log(error))
     }
-    
+
     return(
     <>  
-        <form onSubmit={handleFormSubmit} className="UpdateForm">
+        <div className="UpdateForm">
             <h3>Update Profile Information</h3>
+            <UpdateField fieldName={"Username"} onClick={handleUpdateName} onChange={handleNameChange} buttonName={"name"}/>
             <UpdateField fieldName={"Password"} onClick={handleUpdatePassword} onChange={handlePasswordChange}buttonName={"password"}/> 
-            <UpdateField fieldName={"Name"} onClick={handleUpdateName} onChange={handleNameChange} buttonName={"name"}/>
             <UpdateField fieldName={"Company"} onClick={handleUpdateCompany} onChange={handleCompanyChange} buttonName={"company"}/>
             <UpdateField fieldName={"Date of Birth"} onClick={handleUpdateDOB} onChange={handleDOBChange} buttonName={"DOB"}/>
-            <button type="submit">Return to Settings</button>
-        </form>
+        </div>
     </>
     )
 }

@@ -83,7 +83,7 @@
     background: #B4CFB0;
     padding: 20px;
     width: 500px;
-    margin: 20px auto 50px;
+    margin: auto;
     text-align: center;
     display: grid;
     grid-template: auto/ 1fr;

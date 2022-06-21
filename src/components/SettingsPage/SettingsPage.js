@@ -45,14 +45,14 @@ const SettingsPage = () => {
   const [showUpdateFields, setShowUpdateFields] = useState(false);
   
   // switches components in view to show the update form to change user information
-  const handleClick = () => {
+  const handleClickUpdateDetails = () => {
     setShowUpdateFields(true);
     setShowUserInformation(false);
     setShowUpdateDetailsButton(false);
   }
 
   // switches back to the initial view displaying profile information
-  const handleFormSubmit = (event) => {
+  const handleClickReturnToSettings = (event) => {
 
     event.preventDefault();
 
@@ -68,8 +68,13 @@ const SettingsPage = () => {
     <div className="SettingsPage">
       <h1>Settings</h1>
       {showUserInformation ? <CurrentDetails user={user} hiddenPassword={hiddenPassword}/> : null}
-      {showUpdateDetailsButton ? <UpdateDetails handleClick={handleClick} /> : null}
-      {showUpdateFields ?  <UpdateForm user={user} handleFormSubmit={handleFormSubmit}/> : null}
+      
+      {showUpdateFields ?  <UpdateForm user={user} /> : null}
+      <div className="SettingsButtonContainer">
+          {showUpdateFields ? <button onClick={handleClickReturnToSettings}>Return to Settings</button> : null}  
+          {showUpdateDetailsButton ? <UpdateDetails handleClick={handleClickUpdateDetails} /> : null}  
+          <button href="/">Return to Feed</button>
+      </div>
     </div>
     <div><Footer /></div>
   </>
