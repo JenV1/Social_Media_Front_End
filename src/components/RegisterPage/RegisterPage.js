@@ -57,6 +57,28 @@ const RegisterPage = () => {
   }
 
 
+  const checkPassword = (event) => {
+    setPassword(event.target.value)
+    const passwordBar = document.querySelector("#register_page--password_bar")
+
+    if(password.length < 6){
+      console.log("Terrible")
+      passwordBar.classList.add("red")
+    }
+    else if (password.length < 10){
+      console.log("slightly better")
+      passwordBar.classList.remove("red")
+      passwordBar.classList.add("yellow")
+
+    }
+    else{
+      console.log("There we go")
+      passwordBar.classList.remove("yellow")
+      passwordBar.classList.add("green")
+
+    }
+  }
+
   return(
     <>
     <Header />
@@ -68,7 +90,8 @@ const RegisterPage = () => {
       <input onChange={event => checkUsername(event)} value={username} type="text" id="register_page--username-input"/>
 
       <label htmlFor="register_page--password-input">Password:</label>
-      <input onChange={event => setPassword(event.target.value)} value={password} type="password" id="register_page--password-input"/>
+      <input onChange={event => checkPassword(event)} value={password} type="password" id="register_page--password-input"/>
+      <div id="register_page--password_bar_container"><div id="register_page--password_bar"></div></div>
 
       <label htmlFor="register_page--dob-input">DOB: </label>
       <input onChange={event => setDOB(event.target.value)} value={dob} type="text" id="register_page--dob-input"/>
