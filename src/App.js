@@ -13,6 +13,7 @@ import LogInPage from './components/LogInPage/LogInPage';
 import { useState } from 'react';
 import RegisterPage from './components/RegisterPage/RegisterPage';
 import SettingsPage from './components/SettingsPage/SettingsPage';
+import FeedPage from './components/FeedPage/FeedPage';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="/login" element={<LogInPage />}/>
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/settings" element={<SettingsPage />} />
+          <Route path="/feedPage" element={<FeedPage />} />
       </Routes>
     </Router>
    </>
