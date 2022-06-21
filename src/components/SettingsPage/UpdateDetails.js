@@ -2,9 +2,10 @@ const UpdateDetails = ({handleClick}) => {
 
 
     return (
-        <>
-            <button id="UpdateDetails" onClick={handleClick}>Update User Information</button>
-        </>
+        <div>
+            <button id="UpdateDetailsButton" onClick={handleClick}>Update Profile Information</button>
+            <button href="/">Return to Feed</button>
+        </div>
     );
 }
 

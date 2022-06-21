@@ -38,12 +38,12 @@ const UpdateForm = ({user, handleFormSubmit}) => {
 
     return(
     <>  
-    <form onSubmit={handleFormSubmit}>
+    <form onSubmit={handleFormSubmit} className="UpdateForm">
         <UpdateField fieldName={"Password"} onClick={handleUpdatePassword} onChange={handlePasswordChange}buttonName={"password"}/> 
         <UpdateField fieldName={"Name"} onClick={handleUpdateName} onChange={handleNameChange} buttonName={"name"}/>
         <UpdateField fieldName={"Company"} onClick={handleUpdateCompany} onChange={handleCompanyChange} buttonName={"company"}/>
         <UpdateField fieldName={"Date of Birth"} onClick={handleUpdateDOB} onChange={handleDOBChange} buttonName={"DOB"}/>
-        <button type="submit">Return</button>
+        <button type="submit">Return to Settings</button>
     </form>
     </>
     )

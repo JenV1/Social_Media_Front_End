@@ -8,7 +8,16 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
 const SettingsPage = () => {
-  const [user, setUser] = useState(null)
+  const modelUser = {
+    name: "",
+    company: "",
+    date_of_birth: "",
+    is_bussiness_account: false,
+    password: "",
+    role: ""
+  }
+
+  const [user, setUser] = useState(modelUser)
     
     useEffect(() => {
         var apiUsers = [];
@@ -20,13 +29,12 @@ const SettingsPage = () => {
                 user => user.userLoggedIn
             )
             setUser(loggedInUser[0])
-            setShowUserInformation(true)
         })
         .catch(error => console.log(error))
         
     })
 
-    const [showUserInformation, setShowUserInformation ] = useState(false);
+    const [showUserInformation, setShowUserInformation ] = useState(true);
     const [showUpdateDetailsButton, setShowUpdateDetailsButton] = useState(true);
     const [showUpdateFields, setShowUpdateFields] = useState(false);
     

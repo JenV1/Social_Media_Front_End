@@ -11,16 +11,16 @@ const CurrentDetails = ({user}) => {
     
 
     return(
-        <>
+        <section className="ProfileInformation">
             <h3>Profile Information</h3>
             <p><b>Name: </b> {name}</p>
-            <p><b>Password: </b> {showPassword ? password : "*****"}</p>
-            <button onClick={handleClick}>Show/hide password</button>
+            <p id="showPassword"><b>Password: </b> {showPassword ? password : "*****"}</p>
+            <button onClick={handleClick}>{showPassword ? "Hide" : "Show"} password</button>
             <p><b>Date of Birth: </b> {date_of_birth}</p>
             <p><b>Company: </b> {company}</p>
             <p><b>Role: </b> {role}</p>
             <p><b>Bussiness account: </b> {is_business_account ? "Yes" : "No"}</p>
-        </>
+        </section>
     )
 
 }

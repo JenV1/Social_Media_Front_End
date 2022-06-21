@@ -2,6 +2,39 @@
     background-color: #FCF8E8;
 }
 
-h1 {
+.SettingsPage h1 {
     padding: 20px;
+}
+
+ .ProfileInformation {
+    background: #94B49F;
+    padding: 10px 30px;
+    width: 400px;
+    margin: auto;
+}
+
+.ProfileInformation h3 {
+    text-align: center;
+}
+
+.ProfileInformation button {
+    font-size: 0.8rem;
+    font-weight: 300;
+    float: right;
+    background: #C9D8B6;
+    color: #515E63;
+    border: 1px solid #515E63;
+ }
+
+#showPassword {
+    padding-right: 0px;
+    display: inline-block;
+} 
+
+.UpdateForm {
+    
+}
+
+.UpdateField {
+    
 }
