@@ -1,20 +1,23 @@
 import { useState } from "react";
 import UpdateField from "./UpdateField";
 
-const UpdateForm = ({user, handleFormSubmit}) => {
+const UpdateForm = ({user}) => {
 
     const {id, name, company, password, date_of_birth} = user;
 
+    //values that are collected from the inputs of the update fields
     const [newPassword, SetNewPassword] = useState(password);
     const [newName, setNewName] = useState(name);
     const [newCompany, setNewCompany] = useState(company);
     const [newDOB, setNewDOB] = useState(date_of_birth);
 
+    //methods to update the values as the input fields are typed in
     const handlePasswordChange = event => SetNewPassword(event.target.value);
     const handleNameChange = event => setNewName(event.target.value);
     const handleCompanyChange = event => setNewCompany(event.target.value);
     const handleDOBChange = event => setNewDOB(event.target.value);
 
+    //methods to send put reuqests with the new values when the button next to each field is clicked
     const handleUpdatePassword = () => {
         fetch(`http://localhost:8080/editPassword/${id}`, {method:"PUT", body:newPassword})
         .then(result => console.log(result))
@@ -38,13 +41,13 @@ const UpdateForm = ({user, handleFormSubmit}) => {
 
     return(
     <>  
-    <form onSubmit={handleFormSubmit}>
-        <UpdateField fieldName={"Password"} onClick={handleUpdatePassword} onChange={handlePasswordChange}buttonName={"password"}/> 
-        <UpdateField fieldName={"Name"} onClick={handleUpdateName} onChange={handleNameChange} buttonName={"name"}/>
-        <UpdateField fieldName={"Company"} onClick={handleUpdateCompany} onChange={handleCompanyChange} buttonName={"company"}/>
-        <UpdateField fieldName={"Date of Birth"} onClick={handleUpdateDOB} onChange={handleDOBChange} buttonName={"DOB"}/>
-        <button type="submit">Return</button>
-    </form>
+        <div className="UpdateForm">
+            <h3>Update Profile Information</h3>
+            <UpdateField fieldName={"Username"} onClick={handleUpdateName} onChange={handleNameChange} buttonName={"name"}/>
+            <UpdateField fieldName={"Password"} onClick={handleUpdatePassword} onChange={handlePasswordChange}buttonName={"password"}/> 
+            <UpdateField fieldName={"Company"} onClick={handleUpdateCompany} onChange={handleCompanyChange} buttonName={"company"}/>
+            <UpdateField fieldName={"Date of Birth"} onClick={handleUpdateDOB} onChange={handleDOBChange} buttonName={"DOB"}/>
+        </div>
     </>
     )
 }

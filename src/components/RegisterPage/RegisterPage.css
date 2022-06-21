@@ -4,7 +4,7 @@
     padding: 20px;
     background: #E5E3C9;
     width: 100vw;
-    height: 150vh;
+    height: 120vh;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -17,7 +17,7 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    width: 300px;
+    width: 500px;
     opacity: 90%;
     border-radius: 5px;
     margin-left: auto;
@@ -32,13 +32,13 @@
 
 
 #register_page--password_bar_container{
-    width: 200px;
+    width: 80%;
     height: 5px;
     background-color: lightgrey;
     border-radius: 2px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 3px;
+    margin-top: -10px;
     margin-bottom: 3px;
 }
 
@@ -67,4 +67,21 @@
     width: 100%; 
     transition: background-color 2s, width 1s;
 
+}
+
+.red-border{
+    border: 2px solid red;
+    outline: none;
+}
+
+#register_page--business-checkbox{
+    margin-top: 10px
+}
+
+#business-checkbox--label{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    display: grid;
+    grid-template-columns: 50% 50%;
 }

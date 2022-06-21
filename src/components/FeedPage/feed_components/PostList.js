@@ -4,8 +4,28 @@ import {useState, useEffect} from "react";
 import axios from 'axios';
 
 import AddNewPost from "./AddNewPost";
+import './PostList.css';
+
 
 const PostList = () => {
+
+    const [user, setUser] = useState(null)
+    const [nextPostID, setNextPostID] = useState(1);
+    
+    useEffect(() => {
+        var apiUsers = [];
+        fetch("http://localhost:8080/list_all_users")
+        .then(response => response.json())
+        .then(response => {
+            apiUsers = response;
+            const loggedInUser = apiUsers.filter(
+                user => user.userLoggedIn
+            )
+            setUser(loggedInUser[0])
+        })
+        .catch(error => console.log(error))
+        
+    })
 
     const [posts, setPosts] = useState([]);
     const [filteredByBusiness, setFilteredByBusiness] = useState(false);
@@ -19,7 +39,7 @@ const PostList = () => {
             setComments(comments);
         })
         .catch(err => console.log(err));
-    }, []);
+    }, [posts]);
 
 
     useEffect (() => {
@@ -27,29 +47,31 @@ const PostList = () => {
         .then(response => {
             const posts = response.data;
             setPosts(posts);
+            setNextPostID(posts[posts.length - 1].id +1);
         })
         .catch(err => console.log(err));
-    }, []);
+    }, [posts]);
 
     const handleFilterByBusiness = () => setFilteredByBusiness(!filteredByBusiness);
 
     return (
         <>
-            <button onClick={handleFilterByBusiness}>filter by business</button>
+            <div className="button-and-post-container">
+                <button className="business-btn" onClick={handleFilterByBusiness}>Business Only</button>
 
-            <AddNewPost />
-
-            <ul>
+                <AddNewPost user={user} nextID={nextPostID} />
+            </div>
+            <div className="post-container">
                 {
                     posts.map(post => {
                         if ((post.businessAccount && filteredByBusiness) || !filteredByBusiness) {
-                            return <li key={post.id}>
-                                <Posts post={post} comments={comments.filter(comment => comment.post.id === post.id)}/>
+                            return <li className="post-item" key={post.id}>
+                                <Posts post={post} user={user} comments={comments.filter(comment => comment.post.id === post.id)}/>
                             </li>
                         }
                     })
                 }
-            </ul>
+            </div>
         </>
     )
 }
