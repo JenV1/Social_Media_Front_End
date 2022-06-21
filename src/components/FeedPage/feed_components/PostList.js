@@ -7,6 +7,23 @@ import AddNewPost from "./AddNewPost";
 
 const PostList = () => {
 
+    const [user, setUser] = useState(null)
+    
+    useEffect(() => {
+        var apiUsers = [];
+        fetch("http://localhost:8080/list_all_users")
+        .then(response => response.json())
+        .then(response => {
+            apiUsers = response;
+            const loggedInUser = apiUsers.filter(
+                user => user.userLoggedIn
+            )
+            setUser(loggedInUser[0])
+        })
+        .catch(error => console.log(error))
+        
+    })
+
     const [posts, setPosts] = useState([]);
     const [filteredByBusiness, setFilteredByBusiness] = useState(false);
 
@@ -37,14 +54,14 @@ const PostList = () => {
         <>
             <button onClick={handleFilterByBusiness}>filter by business</button>
 
-            <AddNewPost numberOfPosts={posts.length}/>
+            <AddNewPost user={user} numberOfPosts={posts.length}/>
 
             <ul>
                 {
                     posts.map(post => {
                         if ((post.businessAccount && filteredByBusiness) || !filteredByBusiness) {
                             return <li key={post.id}>
-                                <Posts post={post} comments={comments.filter(comment => comment.post.id === post.id)}/>
+                                <Posts post={post} user={user} comments={comments.filter(comment => comment.post.id === post.id)}/>
                             </li>
                         }
                     })

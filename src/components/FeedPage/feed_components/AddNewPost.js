@@ -1,23 +1,6 @@
 import {useState, useEffect} from 'react';
 
-const AddNewPost = ({numberOfPosts}) => {
-
-    const [user, setUser] = useState(null)
-    
-    useEffect(() => {
-        var apiUsers = [];
-        fetch("http://localhost:8080/list_all_users")
-        .then(response => response.json())
-        .then(response => {
-            apiUsers = response;
-            const loggedInUser = apiUsers.filter(
-                user => user.userLoggedIn
-            )
-            setUser(loggedInUser[0])
-        })
-        .catch(error => console.log(error))
-        
-    })
+const AddNewPost = ({numberOfPosts, user}) => {
 
     const [postContent, setPostContent] = useState("");
     const [postType, setPostType] = useState(1);

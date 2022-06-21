@@ -6,8 +6,9 @@ import axios from 'axios';
 
 import PostEdit from './PostEdit';
 import userEvent from '@testing-library/user-event';
+import AddComment from './AddComment';
 
- const Posts = ({post, comments}) => {
+ const Posts = ({post, comments, user}) => {
 
     const [isShowingComments, setIsShowingComments] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
@@ -27,7 +28,11 @@ import userEvent from '@testing-library/user-event';
 
     return(
         <>
-            <h2><span style={{cursor:'pointer'}} onClick={() => setIsShowingComments(!isShowingComments)}>{postContent} </span></h2>
+            <h2><span style={{cursor:'pointer'}} onClick={() => {
+                if (!isAddingComments) {
+                    setIsShowingComments(!isShowingComments);
+                }
+                }}>{postContent} </span></h2>
 
 
             <h4>{likes}<span style={{cursor:'pointer'}} onClick={() => {
@@ -48,6 +53,10 @@ import userEvent from '@testing-library/user-event';
                         &#9997;&#65039;</span>
                     {isEditing ? <PostEdit post={post} changePost={changePost}/> : null}
                 </span> : null}
+
+                <span style={{cursor:'pointer'}} onClick={() => { setIsShowingComments(!isShowingComments);
+                setIsAddingComments(!isAddingComments);
+                }}>&nbsp;&nbsp; +</span>
             </h4>
 
 
@@ -58,6 +67,8 @@ import userEvent from '@testing-library/user-event';
                     }
                 })
             }
+
+            {isAddingComments ? <AddComment user={user} post={post}/> : null}
         </>
     )
  }
