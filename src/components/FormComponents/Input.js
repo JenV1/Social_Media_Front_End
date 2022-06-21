@@ -15,7 +15,7 @@ const Input = ({checkInput, type}) => {
             setInput(event.target.value)
             checkInput(event.target.value, inputRef, errorMessageRef)
         }}
-        value={input} type={type} id="register_page--input"/>
+        value={input} type={type} />
         <p ref={errorMessageRef}></p>
 
         </div>

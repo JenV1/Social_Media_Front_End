@@ -10,8 +10,14 @@ const RegisterPage = () => {
   const [role, setRole] = useState("");
   const [dob, setDOB] = useState("");
   const [isBusinessAccount, setIsBusinessAccount] = useState(false);
+  
+  const [canLogIn, setCanLogIn] = useState(true);
 
   const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    console.log(canLogIn)
+  }, [canLogIn])
 
 
   useEffect( () => {
@@ -29,29 +35,36 @@ const RegisterPage = () => {
 
     if(userNamesArray.includes(username)){
       usernameBox.current.classList.add("red-border")
+      setCanLogIn(false);
       errorMessage.current.innerText="Username is taken, please try again..."
     }
     else{
+      setCanLogIn(true);
       usernameBox.current.classList.remove("red-border")
       errorMessage.current.innerText=""
+
     }
   }
 
 
   const handleFormSubmit = (event) => {
-    let username = "Jem"
-    let password = "password"
+    if(!canLogIn){
+      event.preventDefault()
+      alert("You must give a unique username, please try again")
+      return;
+    }
+    const username = event.target[0].value
+    const password = event.target[1].value
+
     fetch(`http://localhost:8080/addNewUser?name=${username}&password=${password}&date_of_birth=${dob}&company=${company}&role=${role}&isBusinessAccount=${isBusinessAccount}`, 
           {
             method: "POST"
           })
-          .then(response => logUserIn())
+          .then(response => logUserIn(username, password))
             .catch(err => console.log(err));
           }
           
-  const logUserIn = () => {
-    let username = "Jem"
-    let password = "password"
+  const logUserIn = (username, password) => {
 
     fetch(`http://127.0.0.1:8080/logUserIn?username=${username}&password=${password}`, {method: "PUT"})
             .then(console.log("Added"))

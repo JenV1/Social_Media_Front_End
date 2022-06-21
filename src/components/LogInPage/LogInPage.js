@@ -75,7 +75,7 @@ const LogInPage = () => {
     <Header />
     <div className="LogInPage">
         <h1 id="loginPage--header" >Log In Page</h1>
-        <form id="loginPage--form" onSubmit={handleLogInSubmit} >
+        <form id="loginPage--form" onSubmit={handleLogInSubmit} action="http://localhost:3000/feedPage">
           <label id="username-input-label" htmlFor='username-input'>Username: </label>
           <input onChange={event => setUsername(event.target.value)} value={username} type="text" id="username-input" placeholder='Username/email....' name="username-input"/>
           <p id="username-error-message"></p>
