@@ -19,7 +19,7 @@ const PostList = () => {
             setComments(comments);
         })
         .catch(err => console.log(err));
-    }, []);
+    }, [posts]);
 
 
     useEffect (() => {
@@ -29,7 +29,7 @@ const PostList = () => {
             setPosts(posts);
         })
         .catch(err => console.log(err));
-    }, []);
+    }, [posts]);
 
     const handleFilterByBusiness = () => setFilteredByBusiness(!filteredByBusiness);
 
@@ -37,7 +37,7 @@ const PostList = () => {
         <>
             <button onClick={handleFilterByBusiness}>filter by business</button>
 
-            <AddNewPost />
+            <AddNewPost numberOfPosts={posts.length}/>
 
             <ul>
                 {

@@ -11,6 +11,7 @@ import userEvent from '@testing-library/user-event';
 
     const [isShowingComments, setIsShowingComments] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
+    const [isAddingComments, setIsAddingComments] = useState(false);
 
     const [likes, setLikes] = useState(post.number_of_likes);
     const [postContent, setPostsContent] = useState(post.content_text);
