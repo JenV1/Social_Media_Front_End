@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './Header.css';
 import Container from 'react-bootstrap/Container';
@@ -6,7 +6,6 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 
 
 const Header = () => {
@@ -35,9 +34,38 @@ const Header = () => {
   const closeNav = () =>{
       setWantOpen(false)
   }
+
   const logOutBey = () =>{
     alert("Say you")
   }
+
+  const [users, setUsers] = useState([]);
+  useEffect( () => {
+    fetch("http://127.0.0.1:8080/list_all_users")
+      .then(response => response.json())
+      .then(data => setUsers(data))
+      .catch(err => console.log(err))
+  }, [])
+
+  const filterLogInUser = () =>{
+    users.filter((each) => {
+      return each.userLoggedIn === true;
+    })
+  }
+
+  const handleClickLogOut = () =>{
+    const requestOptions = {
+      method: 'PUT'
+    }
+
+    // fetch(`http://localhost:8080/logUserOut?username=${useNamePublic}&password=${passwordPublic}`, requestOptions)
+    // .then(async result => console.log(`log out ${useNamePublic}`))
+    // .catch(error => console.log(error))
+    let name = filterLogInUser();
+    console.log(name);
+}
+
+
 
 return (
   <header >
@@ -62,9 +90,9 @@ return (
             </NavDropdown>
             
             <div id='mySidenav' className = "sidenav" style =  {wantOpen ?  sideNavOpenStyle :sideNavCloseStyle} >
-              <a href="javascript:void(0)" className="closebtn" onClick= {closeNav} >&times;</a>
+              <a href= "#" className="closebtn" onClick= {closeNav} >&times;</a>
               <a href="http://localhost:3000/login">Log In Again</a>
-              <a href="http://localhost:3000" onClick={logOutBey}>Log Out</a>
+              <a href="#" onClick={handleClickLogOut}>Log Out</a>
               <a href="http://localhost:3000/settings">Setting</a>
               <a href="http://localhost:3000/feedPage">Posts</a>
             </div> 
