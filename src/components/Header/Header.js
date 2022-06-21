@@ -47,22 +47,23 @@ const Header = () => {
       .catch(err => console.log(err))
   }, [])
 
-  const filterLogInUser = () =>{
-    users.filter((each) => {
+  const filterLogInUser = users.filter((each) => {
       return each.userLoggedIn === true;
     })
-  }
+  
 
   const handleClickLogOut = () =>{
+
     const requestOptions = {
       method: 'PUT'
     }
+    const userName = filterLogInUser[0].name;
+    const password = filterLogInUser[0].password
+    fetch(`http://localhost:8080/logUserOut?username=${userName}&password=${password}`, requestOptions)
+    .then(result => console.log(`log out ${userName}`))
+    .catch(error => console.log(error))
+    //no log out Jem, weird.
 
-    // fetch(`http://localhost:8080/logUserOut?username=${useNamePublic}&password=${passwordPublic}`, requestOptions)
-    // .then(async result => console.log(`log out ${useNamePublic}`))
-    // .catch(error => console.log(error))
-    let name = filterLogInUser();
-    console.log(name);
 }
 
 
@@ -92,7 +93,7 @@ return (
             <div id='mySidenav' className = "sidenav" style =  {wantOpen ?  sideNavOpenStyle :sideNavCloseStyle} >
               <a href= "#" className="closebtn" onClick= {closeNav} >&times;</a>
               <a href="http://localhost:3000/login">Log In Again</a>
-              <a href="#" onClick={handleClickLogOut}>Log Out</a>
+              <a href="http://localhost:3000" onClick={handleClickLogOut}>Log Out</a>
               <a href="http://localhost:3000/settings">Setting</a>
               <a href="http://localhost:3000/feedPage">Posts</a>
             </div> 
