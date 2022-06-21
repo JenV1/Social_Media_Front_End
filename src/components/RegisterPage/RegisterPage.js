@@ -85,7 +85,7 @@ const RegisterPage = () => {
 
   <div className="RegisterPage">
     <h1 id="registerPage--header">Register Page: </h1>
-    <form onSubmit={handleFormSubmit} action="/" id="registerPage--form">
+    <form onSubmit={handleFormSubmit} action="/feedPage" id="registerPage--form">
       <label htmlFor="register_page--username-input">Username:</label>
       <input onChange={event => checkUsername(event)} value={username} type="text" id="register_page--username-input"/>
 
