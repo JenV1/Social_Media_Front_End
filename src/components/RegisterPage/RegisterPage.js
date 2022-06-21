@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './RegisterPage.css';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import Input from '../FormComponents/Input';
 
 const RegisterPage = () => {
 
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
   const [company, setCompany] = useState("");
   const [role, setRole] = useState("");
   const [dob, setDOB] = useState("");
@@ -14,33 +13,34 @@ const RegisterPage = () => {
 
   const [users, setUsers] = useState([]);
 
+
   useEffect( () => {
     fetch("http://127.0.0.1:8080/list_all_users")
       .then(response => response.json())
       .then(data => setUsers(data))
-      .catch(err => console.log(err))
+      .catch(err => console.log(err))    
   }, [])
 
 
-  function checkUsername(event){
+
+
+  function checkUsername(username, usernameBox, errorMessage){
     const [...userNamesArray] = users.map(user => user.name)
-    updateUsername(event.target.value)
-      .then(
-        function(value) {console.log(username)}
-      )
 
+    if(userNamesArray.includes(username)){
+      usernameBox.current.classList.add("red-border")
+      errorMessage.current.innerText="Username is taken, please try again..."
+    }
+    else{
+      usernameBox.current.classList.remove("red-border")
+      errorMessage.current.innerText=""
+    }
   }
-
-   async function updateUsername(newUsername) {
-      setUsername(newUsername)
-  }
-
-
-
 
 
   const handleFormSubmit = (event) => {
-
+    let username = "Jem"
+    let password = "password"
     fetch(`http://localhost:8080/addNewUser?name=${username}&password=${password}&date_of_birth=${dob}&company=${company}&role=${role}&isBusinessAccount=${isBusinessAccount}`, 
           {
             method: "POST"
@@ -50,29 +50,31 @@ const RegisterPage = () => {
           }
           
   const logUserIn = () => {
-            
+    let username = "Jem"
+    let password = "password"
+
     fetch(`http://127.0.0.1:8080/logUserIn?username=${username}&password=${password}`, {method: "PUT"})
             .then(console.log("Added"))
             .catch(err => console.log(err))
   }
 
 
-  const checkPassword = (event) => {
-    setPassword(event.target.value)
+  const checkPassword = (password) => {
     const passwordBar = document.querySelector("#register_page--password_bar")
 
     if(password.length < 6){
-      console.log("Terrible")
+      passwordBar.classList.remove("yellow")
+      passwordBar.classList.remove("green")
       passwordBar.classList.add("red")
     }
     else if (password.length < 10){
-      console.log("slightly better")
       passwordBar.classList.remove("red")
+      passwordBar.classList.remove("green")
       passwordBar.classList.add("yellow")
 
     }
     else{
-      console.log("There we go")
+      passwordBar.classList.remove("red")
       passwordBar.classList.remove("yellow")
       passwordBar.classList.add("green")
 
@@ -87,10 +89,11 @@ const RegisterPage = () => {
     <h1 id="registerPage--header">Register Page: </h1>
     <form onSubmit={handleFormSubmit} action="/feedPage" id="registerPage--form">
       <label htmlFor="register_page--username-input">Username:</label>
-      <input onChange={event => checkUsername(event)} value={username} type="text" id="register_page--username-input"/>
+      <Input checkInput={checkUsername} type={"text"}/>
+      <p id="username-error-message"></p>
 
       <label htmlFor="register_page--password-input">Password:</label>
-      <input onChange={event => checkPassword(event)} value={password} type="password" id="register_page--password-input"/>
+      <Input checkInput={checkPassword} type={"password"} />
       <div id="register_page--password_bar_container"><div id="register_page--password_bar"></div></div>
 
       <label htmlFor="register_page--dob-input">DOB: </label>

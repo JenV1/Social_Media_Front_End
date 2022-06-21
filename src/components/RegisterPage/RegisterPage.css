@@ -68,3 +68,8 @@
     transition: background-color 2s, width 1s;
 
 }
+
+.red-border{
+    border: 2px solid red;
+    outline: none;
+}
