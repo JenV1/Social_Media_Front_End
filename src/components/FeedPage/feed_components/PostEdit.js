@@ -1,6 +1,6 @@
 import {useState} from 'react';
 
-const PostEdit = ({post, changePost}) => {
+const PostEdit = ({post, changePost, turnOffEditing}) => {
 
     const [newPostContent, setNewPostContent] = useState("");
 
@@ -15,10 +15,12 @@ const PostEdit = ({post, changePost}) => {
             body: newPostContent
         })
         .then(response => {changePost(newPostContent)})
+
+        turnOffEditing();
     }
 
     return (
-        <>
+        <>  
             <form onSubmit={handleEdit}>
                 <label>
                     <input type="text" name="content" value={newPostContent} 
