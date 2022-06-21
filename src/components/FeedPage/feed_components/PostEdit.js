@@ -20,7 +20,7 @@ const PostEdit = ({post, changePost, turnOffEditing}) => {
     }
 
     return (
-        <>
+        <>  
             <form onSubmit={handleEdit}>
                 <label>
                     <input type="text" name="content" value={newPostContent} 

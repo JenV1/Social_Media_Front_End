@@ -1,0 +1,19 @@
+.delete-btn{
+    float: right;
+}
+
+.post-by-text {
+    color: #515E63;
+    opacity: 60%;
+}
+
+.comment-btn{
+    float: right;
+    padding-right: 12px;
+}
+
+.add-comment {
+    color: #515E63;
+    opacity: 60%;
+    font-style: italic;
+}

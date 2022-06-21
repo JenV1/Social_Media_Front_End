@@ -47,14 +47,19 @@ import AddComment from './AddComment';
                 }
                 }}>{postContent} </span>
                 
-                {post.user.userLoggedIn ? <span style={{cursor:'pointer'}} onClick={deletePost}>&#128465;&#65039;</span> : null}
+                {post.user.userLoggedIn ? <span className="delete-btn" style={{cursor:'pointer'}} onClick={deletePost}>&#128465;&#65039;</span> : null}
                 
-                </h2>
-            <p>Post by {post.user.name}</p>
-            <p>&#8600;&#65039; {comments.length}</p>
+                {post.user.userLoggedIn ?
+                <span>
+                    <span style={{cursor:'pointer'}} onClick={() => setIsEditing(!isEditing)}>
+                        &#9997;&#65039;</span>
+                    {isEditing ? <PostEdit post={post} changePost={changePost} turnOffEditing={turnOffEditing}/> : null}
+                </span> : null}</h2>
+            <p className='post-by-text'>Post by {post.user.name}</p>
+            <p>&#8618;&#65039; {comments.length} <span className='add-comment'>comments</span></p>
 
 
-            <h4>{likes}<span style={{cursor:'pointer'}} onClick={() => {
+            <h4><span style={{cursor:'pointer'}} onClick={() => {
                 fetch(`http://127.0.0.1:8080/addLikeToPost/${post.id}`, {
                     method:'PUT',
                     headers:{
@@ -65,17 +70,12 @@ import AddComment from './AddComment';
                 .then(response => setLikes(likes + 1))
                 .catch(err => {console.log(err);});
             }}>
-                &#10084;&#65039;</span>
-                {post.user.userLoggedIn ?
-                <span>
-                    <span style={{cursor:'pointer'}} onClick={() => setIsEditing(!isEditing)}>
-                        &#9997;&#65039;</span>
-                    {isEditing ? <PostEdit post={post} changePost={changePost} turnOffEditing={turnOffEditing}/> : null}
-                </span> : null}
+                &#10084;&#65039;</span> {likes}
+               
 
-                <span style={{cursor:'pointer'}} onClick={() => { setIsShowingComments(true);
+                <span className="comment-btn" style={{cursor:'pointer'}} onClick={() => { setIsShowingComments(true);
                 setIsAddingComments(!isAddingComments);
-                }}>&nbsp;&nbsp; +</span>
+                }}><span className='add-comment'>add comment&nbsp;</span> +</span>
             </h4>
 
 
