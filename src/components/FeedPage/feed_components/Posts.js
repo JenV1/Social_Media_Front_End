@@ -35,6 +35,8 @@ import AddComment from './AddComment';
         .catch(err => console.log(err))
     }
 
+    const turnOffEditing = () => setIsEditing(false);
+
     return(
         <>
             <h2><span style={{cursor:'pointer'}} onClick={() => {
@@ -66,7 +68,7 @@ import AddComment from './AddComment';
                 <span>
                     <span style={{cursor:'pointer'}} onClick={() => setIsEditing(!isEditing)}>
                         &#9997;&#65039;</span>
-                    {isEditing ? <PostEdit post={post} changePost={changePost}/> : null}
+                    {isEditing ? <PostEdit post={post} changePost={changePost} turnOffEditing={turnOffEditing}/> : null}
                 </span> : null}
 
                 <span style={{cursor:'pointer'}} onClick={() => { setIsShowingComments(true);
