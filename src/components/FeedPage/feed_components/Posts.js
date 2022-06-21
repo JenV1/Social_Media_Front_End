@@ -25,6 +25,16 @@ import AddComment from './AddComment';
         setPostsContent(postText);
     }
 
+    const deletePost = () => {
+        const options = {
+            method: "DELETE",
+        }
+
+        fetch(`http://127.0.0.1:8080/deletePost/${post.id}`, options)
+        .then(response => window.location.reload())
+        .catch(err => console.log(err))
+    }
+
 
     return(
         <>
@@ -32,7 +42,13 @@ import AddComment from './AddComment';
                 if (!isAddingComments) {
                     setIsShowingComments(!isShowingComments);
                 }
-                }}>{postContent} </span></h2>
+                }}>{postContent} </span>
+                
+                {post.user.userLoggedIn ? <span style={{cursor:'pointer'}} onClick={deletePost}>&#128465;&#65039;</span> : null}
+                
+                </h2>
+            <p>Post by {post.user.name}</p>
+            <p>&#8600;&#65039; {comments.length}</p>
 
 
             <h4>{likes}<span style={{cursor:'pointer'}} onClick={() => {
@@ -54,7 +70,7 @@ import AddComment from './AddComment';
                     {isEditing ? <PostEdit post={post} changePost={changePost}/> : null}
                 </span> : null}
 
-                <span style={{cursor:'pointer'}} onClick={() => { setIsShowingComments(!isShowingComments);
+                <span style={{cursor:'pointer'}} onClick={() => { setIsShowingComments(true);
                 setIsAddingComments(!isAddingComments);
                 }}>&nbsp;&nbsp; +</span>
             </h4>
@@ -63,7 +79,9 @@ import AddComment from './AddComment';
             {
                 comments.map(comment => {
                     if (isShowingComments) {
-                        return <p key={comment.id} className="comment">&#128073;{` ${comment.commentContent}`}</p>
+                        return <>
+                        <p key={comment.id} className="comment">&#128073;{` ${comment.commentContent}`}</p>
+                        </>
                     }
                 })
             }
