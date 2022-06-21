@@ -22,6 +22,23 @@ const RegisterPage = () => {
   }, [])
 
 
+  function checkUsername(event){
+    const [...userNamesArray] = users.map(user => user.name)
+    updateUsername(event.target.value)
+      .then(
+        function(value) {console.log(username)}
+      )
+
+  }
+
+   async function updateUsername(newUsername) {
+      setUsername(newUsername)
+  }
+
+
+
+
+
   const handleFormSubmit = (event) => {
 
     fetch(`http://localhost:8080/addNewUser?name=${username}&password=${password}&date_of_birth=${dob}&company=${company}&role=${role}&isBusinessAccount=${isBusinessAccount}`, 
@@ -48,7 +65,7 @@ const RegisterPage = () => {
     <h1 id="registerPage--header">Register Page: </h1>
     <form onSubmit={handleFormSubmit} action="/" id="registerPage--form">
       <label htmlFor="register_page--username-input">Username:</label>
-      <input onChange={event => setUsername(event.target.value)} value={username} type="text" id="register_page--username-input"/>
+      <input onChange={event => checkUsername(event)} value={username} type="text" id="register_page--username-input"/>
 
       <label htmlFor="register_page--password-input">Password:</label>
       <input onChange={event => setPassword(event.target.value)} value={password} type="password" id="register_page--password-input"/>
