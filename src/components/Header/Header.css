@@ -5,7 +5,15 @@
 }
 
 .nav-position{
-    padding: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: 0px;
+}
+
+
+.nav-link {
+    padding-left: 50px;
+    padding-right: 200px;
 }
 
 
@@ -16,7 +24,7 @@
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #111;
+    background-color: #515E63;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
@@ -26,7 +34,7 @@
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: #818181;
+    color: #F1ECC3;
     display: block;
     transition: 0.3s;
   }
@@ -51,4 +59,8 @@
   @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
+  }
+
+  #earthButton{
+    padding-left: 450px;
   }

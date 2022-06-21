@@ -19,7 +19,7 @@ return (
   <div >
     <div><Header /></div>
     <div id='LandingPage'>
-      <h1 style={adjustLanding}>Welcome</h1>
+      <h1 style={adjustLanding}>Welcome !</h1>
     </div>
     <div id='landing-button'>
     <a href="http://localhost:3000/login">
