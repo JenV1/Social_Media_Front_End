@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 
 import {
@@ -17,41 +16,40 @@ import FeedPage from './components/FeedPage/FeedPage';
 
 function App() {
 
-  // const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState([]);
 
-  // useEffect( () => {
-  //   fetch("http://127.0.0.1:8080/list_all_users")
-  //     .then(response => response.json())
-  //     .then(data => setUsers(data))
-  //     .catch(err => console.log(err))
-  // }, [])
+  useEffect( () => {
+    fetch("http://127.0.0.1:8080/list_all_users")
+      .then(response => response.json())
+      .then(data => setUsers(data))
+      .catch(err => console.log(err))
+  }, [users])
 
-  // const checkLoginStatus = (targetURLLoggedIn, targetURLLoggedOut) => {
-  //   let loggedIn = false;
-  //   for(let user of users){
-  //       if(user.userLoggedIn){
-  //         loggedIn = true;
-  //       }
-  //   }
-  //   if(loggedIn){
-  //     window.location.replace(targetURLLoggedIn)
-  //     loggedIn = false;
-  //   }
-  //   else{
-  //     window.location.replace(targetURLLoggedOut)
 
-  //   }
-  // }
+  const checkLogInStatus = () => {
+    let loggedIn = false;
+    for(let user of users){
+        if(user.userLoggedIn){
+          loggedIn = true;
+        }
+    }
+    return loggedIn;
+  }
+
+  const pageRedirect = (targetURL) => {
+      window.location.replace(targetURL)
+  }
+
 
   return (
    <div className='content'>
     <Router>
       <Routes>
           <Route exact path="/" element={<LandingPage />} />
-          <Route path="/login" element={<LogInPage />}/>
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/settings" element={<SettingsPage />} />
-          <Route path="/feedPage" element={<FeedPage />} />
+          <Route path="/login"  element={<LogInPage checkLogInStatus={checkLogInStatus} pageRedirect={pageRedirect}/>}/>
+          <Route path="/register" element={<RegisterPage checkLogInStatus={checkLogInStatus} pageRedirect={pageRedirect}/>} />
+          <Route path="/settings" element={<SettingsPage checkLogInStatus={checkLogInStatus} pageRedirect={pageRedirect}/>} />
+          <Route path="/feedPage" element={<FeedPage checkLogInStatus={checkLogInStatus} pageRedirect={pageRedirect}/>} />
       </Routes>
     </Router>
    </div>

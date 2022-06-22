@@ -3,7 +3,8 @@ import './LogInPage.css';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
-const LogInPage = () => {
+
+const LogInPage = ({checkLogInStatus, pageRedirect}) => {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -15,6 +16,16 @@ const LogInPage = () => {
       .then(data => setUsers(data))
       .catch(err => console.log(err))
   })
+
+
+  window.onload = function(){
+    const loggedIn = checkLogInStatus()
+    if(loggedIn){
+      pageRedirect("http://localhost:3000/feedPage")
+    }
+  }
+
+  
 
 
   const checkLogInDetails = (event) => {
@@ -82,7 +93,7 @@ const LogInPage = () => {
           <label id="password-input-label" htmlFor="password-input">Password: </label>
           <input onChange={event => setPassword(event.target.value)} type="password" id="password-input" name="password-input" placeholder="Password..." value={password}/>
           <p id="password-error-message"></p>
-          <input type="submit" class="submit-input"/>
+          <input type="submit" className="submit-input"/>
         <a href="/register">Or register a new account here</a>
         </form>
 
