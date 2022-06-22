@@ -17,7 +17,7 @@ const LandingPage = () => {
 
 return (
   <div >
-    <div><Header open = "true" /></div>
+    <div><Header /></div>
     <div id='LandingPage'>
       <h1 style={adjustLanding}>Welcome !</h1>
     </div>
