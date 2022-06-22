@@ -78,8 +78,6 @@ const PostList = () => {
     }
 
     const [posts2, setPosts2] = useState([]);
-
-
     const [comments2, setComments2] = useState([]);
 
     useEffect(() => {
@@ -89,7 +87,7 @@ const PostList = () => {
             setComments(comments);
         })
         .catch(err => console.log(err));
-    }, [posts]);
+    }, [posts2]);
 
 
     const handleClickByKeyword = () =>{
@@ -111,10 +109,13 @@ const PostList = () => {
         response.json())
         .then(result => {
             setPosts(result)
-        } )
+        } )}
 
         console.log(posts)
         console.log(contentsByKeyword)
+
+        //the first time click, contentBykeyword is empty, so alert will pop up
+        if (contentsByKeyword) {
         
         posts.map(post => {
             if (post.content_text === contentsByKeyword) {
@@ -122,7 +123,10 @@ const PostList = () => {
                 setTargetPost(post);
                 setPopTarget(true);
             } 
-        })}
+        })
+        }  else {
+            alert("It doesn't exist")
+        }
 
 
 
