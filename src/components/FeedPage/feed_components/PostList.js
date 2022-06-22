@@ -28,6 +28,7 @@ const PostList = () => {
     })
 
     const [posts, setPosts] = useState([]);
+    const [ids, setIDs] = useState([]);
     const [filteredByBusiness, setFilteredByBusiness] = useState(false);
 
     const [comments, setComments] = useState([]);
@@ -47,7 +48,9 @@ const PostList = () => {
         .then(response => {
             const posts = response.data;
             setPosts(posts);
-            setNextPostID(posts[posts.length - 1].id +1);
+            setIDs(posts.map(post => post.id, 10))
+            // setNextPostID(posts[posts.length - 1].id +1);
+            setNextPostID(Math.max.apply(Math, ids) +1);
         })
         .catch(err => console.log(err));
     }, [posts]);
