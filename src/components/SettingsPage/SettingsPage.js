@@ -71,7 +71,7 @@ const SettingsPage = ({checkLogInStatus, pageRedirect}) => {
   //what is actually rendered on the page - depends on the truth values of the display fields
   return(
   <>
-    <div><Header /></div>
+    <Header open="true" />
     <div className="SettingsPage">
       <h1>Settings</h1>
       {showUserInformation ? <CurrentDetails user={user} hiddenPassword={hiddenPassword}/> : null}
@@ -83,7 +83,7 @@ const SettingsPage = ({checkLogInStatus, pageRedirect}) => {
           <a href='/feedPage'><button>Return to Feed</button></a>
       </div>
     </div>
-    <div><Footer /></div>
+    <Footer />
   </>
 )};
 
