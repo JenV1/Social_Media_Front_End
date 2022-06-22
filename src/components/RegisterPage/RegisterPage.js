@@ -55,7 +55,7 @@ const RegisterPage = () => {
       alert("You must give a unique username, please try again")
       return;
     }
-
+    event.preventDefault()
     const username = event.target[0].value
     const password = event.target[1].value
     const dob = event.target[2].value
@@ -68,7 +68,7 @@ const RegisterPage = () => {
           {
             method: "POST"
           })
-          .then(response => logUserIn(username, password))
+          .then(() => logUserIn(username, password))
             .catch(err => console.log(err));
           }
           
@@ -76,6 +76,7 @@ const RegisterPage = () => {
 
     fetch(`http://127.0.0.1:8080/logUserIn?username=${username}&password=${password}`, {method: "PUT"})
             .then(console.log("Added"))
+            .then(() => window.location.replace("http://localhost:3000/feedPage"))
             .catch(err => console.log(err))
   }
 
