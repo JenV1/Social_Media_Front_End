@@ -139,10 +139,23 @@ const PostList = () => {
         <>
             <div className="button-and-post-container">
                 <button className="business-btn" onClick={handleFilterByBusiness}>Business Posts Only</button>
-
                 <AddNewPost user={user} nextID={nextPostID} />
+
             </div>
 
+            
+            <div className="search-bar">
+                <input className = "search-input" type="text" placeholder = "Input keyword here..." onChange={handleChangeByKeyword} />
+                <button className="btn" type="submit" onClick={handleClickByKeyword} >Search</button>
+            </div>
+
+            {popTarget &&
+            <div className="keyword-box">
+                <h4>{`All posts with "${keyword}" `}</h4>
+                <li className="post-item">
+                <Posts post={targetpost} user={targetpost.user.name} comments={comments2.filter(comment => comment.targetpost.id === targetpost.id)}/>
+                </li>
+            </div> }
          
             
             <div className="post-container">
@@ -157,11 +170,8 @@ const PostList = () => {
                 }
             </div>
 
-            <div className="post-container">
-                <input type="text" placeholder="Search By Keyword" onChange={handleChangeByKeyword} />
-                <button type="submit" onClick={handleClickByKeyword}>Click Me!</button>
-                {popTarget && <Posts post={targetpost} user={targetpost.user.name} comments={comments2.filter(comment => comment.targetpost.id === targetpost.id)}/>}
-            </div>
+
+
         </>
     )
 }

@@ -42,7 +42,7 @@ const AddNewPost = ({nextID, user}) => {
                         <option value="5">EVENT PLAN</option>
                     </select>
                 </label>
-            <input type="submit" value="Post" className='post-btn'/>
+            <input type="submit" value="Post" className='btn'/>
 
             </form>
         </>
