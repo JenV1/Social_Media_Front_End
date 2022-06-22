@@ -73,7 +73,7 @@ const SettingsPage = () => {
       <div className="SettingsButtonContainer">
           {showUpdateFields ? <button onClick={handleClickReturnToSettings}>Return to Settings</button> : null}  
           {showUpdateDetailsButton ? <UpdateDetails handleClick={handleClickUpdateDetails} /> : null}  
-          <button href="/feedPage">Return to Feed</button>
+          <a href='/feedPage'><button>Return to Feed</button></a>
       </div>
     </div>
     <div><Footer /></div>
