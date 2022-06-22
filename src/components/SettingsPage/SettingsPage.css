@@ -29,6 +29,8 @@
     background: #94B49F;
     padding: 10px 30px 20px;
     width: 400px;
+    opacity: 90%;
+    border-radius: 5px;
     margin: auto;
     display: grid;
     grid-template-areas: 
@@ -80,6 +82,8 @@
 }
 .UpdateForm {
     background: #B4CFB0;
+    opacity: 90%;
+    border-radius: 5px;
     padding: 20px;
     width: 500px;
     margin: auto;
