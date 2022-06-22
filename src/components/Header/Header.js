@@ -61,7 +61,7 @@ const Header = (props) => {
         <div id='mySidenav' className = "sidenav" style =  {wantOpen ?  sideNavOpenStyle :sideNavCloseStyle} >
           <a href= "#" className="closebtn" onClick= {closeNav} >&times;</a>
           <a href="http://localhost:3000/login">Log In Again</a>
-          <a href="#" onClick={handleClickLogOut}>Log Out</a>
+          <a href="http://localhost:3000/" onClick={handleClickLogOut}>Log Out</a>
           <a href="http://localhost:3000/settings">Setting</a>
           <a href="http://localhost:3000/feedPage">Posts</a>
         </div> 
@@ -96,7 +96,7 @@ return (
   <header >
     <Navbar expand="lg" className="Header"  >
       <Container className='nav-position'>
-        <Navbar.Brand href="#home">Connect</Navbar.Brand>
+        <Navbar.Brand href="http://localhost:3000">Connect</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto" >

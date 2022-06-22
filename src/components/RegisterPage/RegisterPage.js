@@ -55,14 +55,20 @@ const RegisterPage = () => {
       alert("You must give a unique username, please try again")
       return;
     }
+    event.preventDefault()
     const username = event.target[0].value
     const password = event.target[1].value
+    const dob = event.target[2].value
+    const company = event.target[3].value
+    const role = event.target[4].value
+    const isBusinessAccount = event.target[5].checked
+
 
     fetch(`http://localhost:8080/addNewUser?name=${username}&password=${password}&date_of_birth=${dob}&company=${company}&role=${role}&isBusinessAccount=${isBusinessAccount}`, 
           {
             method: "POST"
           })
-          .then(response => logUserIn(username, password))
+          .then(() => logUserIn(username, password))
             .catch(err => console.log(err));
           }
           
@@ -70,6 +76,7 @@ const RegisterPage = () => {
 
     fetch(`http://127.0.0.1:8080/logUserIn?username=${username}&password=${password}`, {method: "PUT"})
             .then(console.log("Added"))
+            .then(() => window.location.replace("http://localhost:3000/feedPage"))
             .catch(err => console.log(err))
   }
 
@@ -99,7 +106,7 @@ const RegisterPage = () => {
   return(
     <div className='registerpage--content'>
     <Header />
-
+    
   <div className="RegisterPage">
     <h1 id="registerPage--header">Register Page: </h1>
     <form onSubmit={handleFormSubmit} action="/feedPage" id="registerPage--form">
