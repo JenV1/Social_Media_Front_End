@@ -23,6 +23,7 @@ const LogInPage = () => {
 
 
   const checkLogInDetails = (event) => {
+    event.preventDefault();
     const [...userNamesArray] = users.map(user => user.name)
 
     if(userNamesArray.includes(username)){
@@ -45,6 +46,8 @@ const LogInPage = () => {
 
     fetch(`http://127.0.0.1:8080/logUserIn?username=${username}&password=${password}`, options)
       .catch(err => console.log(err))
+
+    window.location.replace("http://localhost:3000/feedPage")
   }
 
   const wrongPassword = (event) => {
