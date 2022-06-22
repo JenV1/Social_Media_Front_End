@@ -56,7 +56,11 @@ import SuperLikeComment from './SuperLikeComment';
                         &#9997;&#65039;</span>
                     {isEditing ? <PostEdit post={post} changePost={changePost} turnOffEditing={turnOffEditing}/> : null}
                 </span> : null}</h2>
-            <p className='post-by-text'>Post by {post.user.name}</p>
+            <p className='post-by-text'>Post by 
+            <span className="username-more-info"> {post.user.name}
+                    <span className='popup'>{post.user.role} at {post.user.company}</span>
+            </span>
+            </p>
             <p>&#8618;&#65039; {comments.length} <span className='add-comment'>comments</span></p>
 
 
