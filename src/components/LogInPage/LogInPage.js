@@ -3,7 +3,6 @@ import './LogInPage.css';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
-
 const LogInPage = () => {
 
   const [username, setUsername] = useState("");
@@ -69,6 +68,7 @@ const LogInPage = () => {
 
   }
 
+
   return(
     <>
     
@@ -95,5 +95,7 @@ const LogInPage = () => {
   
   };
 
+  
 
 export default LogInPage;
+
