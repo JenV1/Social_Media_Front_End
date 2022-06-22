@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './FeedPage.css';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 
 import PostList from './feed_components/PostList';
 
@@ -15,7 +17,9 @@ const FeedPage = ({checkLogInStatus, pageRedirect}) => {
   }
   return(
   <div className="FeedPage">
+    <Header open="true"  />
     <PostList />
+    <Footer />
   </div>
   );
 };
