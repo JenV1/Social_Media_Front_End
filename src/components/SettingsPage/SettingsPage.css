@@ -87,7 +87,7 @@
     text-align: center;
     display: grid;
     grid-template: auto/ 1fr;
-    row-gap: 10px;
+    row-gap: 20px;
 }
 
 .UpdateForm button {
@@ -97,8 +97,8 @@
 
 .UpdateField{
     display: grid;
-    grid-template: 1fr 1.5fr/1fr 1fr;
-    gap: 5px;
+    grid-template: 1fr 30px/1fr 1fr;
+    gap: 10px 5px;
 }
 .UpdateField label{
     grid-row: 1/ span 1 ;
@@ -117,6 +117,7 @@
     margin-right: 0px;
     margin-top: auto;
     width: 250px;
+    height: 30px;
 }
 
 .UpdateField button {
@@ -124,7 +125,7 @@
     font-size: 0.8rem;
     font-weight: 400;
     width: 140px;
-    height: 27px;
+    height: 30px;
     background: #C9D8B6;
     color: #515E63;
     border: 1px solid #515E63;
