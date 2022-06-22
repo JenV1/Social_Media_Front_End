@@ -45,8 +45,14 @@
 .edit-post-btn {
     background-color: #789395;
     color: white;
+    width: 450px;
 }
 
 .edit-content {
+    margin-top: 10px;
+    width: 450px;
+}
+
+.edit-post-form {
     text-align: center;
 }
