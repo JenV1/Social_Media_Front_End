@@ -93,15 +93,3 @@
     grid-template-columns: 50% 50%;
 }
 
-.registerpage--art{
-    position: relative;
-}
-.registerpage--art-box{
-    position: absolute;
-    top: 50px;
-    height: 100px;
-    width: 100px;
-    background: #B4CFB0;
-    
-
-}

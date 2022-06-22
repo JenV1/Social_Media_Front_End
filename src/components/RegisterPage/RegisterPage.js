@@ -99,9 +99,7 @@ const RegisterPage = () => {
   return(
     <div className='registerpage--content'>
     <Header />
-    <div className="registerpage--art">
-        <div className="registerpage--art-box">Hello</div>
-    </div>
+    
   <div className="RegisterPage">
     <h1 id="registerPage--header">Register Page: </h1>
     <form onSubmit={handleFormSubmit} action="/feedPage" id="registerPage--form">
