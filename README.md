@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# FakeBook:
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+Tagline: A Social media platform for young professionals
 
-In the project directory, you can run:
+## Tech Stack
 
-### `npm start`
+This project was built using:
+- JavaScript with React and Bootstrap frameworks
+- HTML
+- CSS
 
-Runs the app in the development mode.\
+## How to start the server: 
+
+As well as dowloading this project, you will need to download and run [this one](https://github.com/JenV1/Social_Media_Back_End) following the instructions on the README there. This is an updated version of [this project](https://github.com/LMBroadhurst/backEndProjectGroup5), for compatability with the front end server.
+ 
+In the project directory, you should first run `npm install` to install required dependencies
+
+Next run `npm start` to start the server
+
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
+Type `npm run build` to build the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### Using the application: 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Once in the web app you have plenty of functionality at your finger tips: 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Landing page
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+You will start off at the landing page to welcome you to the site. From here you are able to log in and register for Connect.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### Login & Register Pages
 
-## Learn More
+Here you are able to login to an existing user account or register to create a new account, all of this information is saved to the backend database.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Feed Page
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The main page of the site, allowing you to scroll through the user generated posts, like the posts, add/edit comments as well as, of course, creating your own new content with the option to add posts.
 
-### Code Splitting
+#### Settings Page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+On this page you are able to view the profile information of the user currently logged in to the website. There is also the option to edit the profile details, which then saves these changes to the backend database.
 
-### Analyzing the Bundle Size
+### Credit
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+This project was made by:
+- [James Stillman](https://github.com/JStillman1)
+- [Jenna Vlahos](https://github.com/JenV1)
+- [Katya Grenier](https://github.com/katyagr)
+- [Ziqiong Li](https://github.com/Ziqiongg)
 
-### Making a Progressive Web App
+#### Acknowledgements 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Group 5 - Lewis Broadhurst, Mohamed Ismail, Cem Gurhan & Scott Christie - for providing the backend project and assisting us in fixing some issues
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[Internet icons](https://www.flaticon.com/free-icons/internet) created by Freepik - Flaticon
