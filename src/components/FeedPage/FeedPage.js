@@ -19,6 +19,7 @@ const FeedPage = ({checkLogInStatus, pageRedirect}) => {
   <div className="FeedPage">
     <Header open="true"  />
     <PostList />
+    <div className="white-space"></div>
     <Footer />
   </div>
   );

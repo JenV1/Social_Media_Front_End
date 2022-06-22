@@ -11,7 +11,7 @@ const Input = ({checkInput, type}) => {
 
     return(
         <div>
-        <input ref={inputRef} className="input" onChange={(event) => {
+        <input ref={inputRef} className="input-box" onChange={(event) => {
             setInput(event.target.value)
             checkInput(event.target.value, inputRef, errorMessageRef)
         }}

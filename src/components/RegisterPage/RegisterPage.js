@@ -55,14 +55,20 @@ const RegisterPage = () => {
       alert("You must give a unique username, please try again")
       return;
     }
+    event.preventDefault()
     const username = event.target[0].value
     const password = event.target[1].value
+    const dob = event.target[2].value
+    const company = event.target[3].value
+    const role = event.target[4].value
+    const isBusinessAccount = event.target[5].checked
+
 
     fetch(`http://localhost:8080/addNewUser?name=${username}&password=${password}&date_of_birth=${dob}&company=${company}&role=${role}&isBusinessAccount=${isBusinessAccount}`, 
           {
             method: "POST"
           })
-          .then(response => logUserIn(username, password))
+          .then(() => logUserIn(username, password))
             .catch(err => console.log(err));
           }
           
@@ -70,6 +76,7 @@ const RegisterPage = () => {
 
     fetch(`http://127.0.0.1:8080/logUserIn?username=${username}&password=${password}`, {method: "PUT"})
             .then(console.log("Added"))
+            .then(() => window.location.replace("http://localhost:3000/feedPage"))
             .catch(err => console.log(err))
   }
 
@@ -97,9 +104,9 @@ const RegisterPage = () => {
   }
 
   return(
-    <>
+    <div className='registerpage--content'>
     <Header />
-
+    
   <div className="RegisterPage">
     <h1 id="registerPage--header">Register Page: </h1>
     <form onSubmit={handleFormSubmit} action="/feedPage" id="registerPage--form">
@@ -112,16 +119,16 @@ const RegisterPage = () => {
       <div id="register_page--password_bar_container"><div id="register_page--password_bar"></div></div>
 
       <label htmlFor="register_page--dob-input">DOB: </label>
-      <input onChange={event => setDOB(event.target.value)} value={dob} type="text" id="register_page--dob-input"/>
+      <input className="input-box" onChange={event => setDOB(event.target.value)} value={dob} type="text" id="register_page--dob-input"/>
 
       <label htmlFor="register_page--company-input">Company: </label>
-      <input onChange={event => setCompany(event.target.value)} value={company} type="text" id="register_page--company-input"/>
+      <input className="input-box" onChange={event => setCompany(event.target.value)} value={company} type="text" id="register_page--company-input"/>
 
       <label htmlFor="register_page--role-input">Role: </label>
-      <input onChange={event => setRole(event.target.value)} value={role} type="text" id="register_page--role-input"/>
+      <input className="input-box" onChange={event => setRole(event.target.value)} value={role} type="text" id="register_page--role-input"/>
 
       <label htmlFor="register_page--business-checkbox" id="business-checkbox--label">Is this a business account?
-      <input onChange={event => setIsBusinessAccount(event.target.value)} value={isBusinessAccount} type="checkbox" id="register_page--business-checkbox"/>
+      <input className="input-box" onChange={event => setIsBusinessAccount(event.target.value)} value={isBusinessAccount} type="checkbox" id="register_page--business-checkbox"/>
       </label>
       <input type="submit" className="submit-input" value="Register Account"/>
 
@@ -132,7 +139,7 @@ const RegisterPage = () => {
   </div>
 
   <Footer />
-    </>
+    </div>
   )
 };
 
