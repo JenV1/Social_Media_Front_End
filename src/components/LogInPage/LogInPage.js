@@ -4,7 +4,7 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
 
-const LogInPage = ({checkLogInStatus, pageRedirect}) => {
+const LogInPage = () => {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -18,12 +18,6 @@ const LogInPage = ({checkLogInStatus, pageRedirect}) => {
   })
 
 
-  window.onload = function(){
-    const loggedIn = checkLogInStatus()
-    if(loggedIn){
-      pageRedirect("http://localhost:3000/feedPage")
-    }
-  }
 
   
 
