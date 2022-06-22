@@ -34,6 +34,9 @@ const SettingsPage = () => {
         const loggedInUser = apiUsers.filter(
           user => user.userLoggedIn
         )
+        if (loggedInUser.length == 0){
+          window.location.replace("http://localhost:3000/")
+        }
         setUser(loggedInUser[0])
         const passwordLength = user.password.length;
         setHiddenPassword(new Array(passwordLength + 1).join("*"))
