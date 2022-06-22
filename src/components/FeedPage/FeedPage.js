@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './FeedPage.css';
 
+import PostList from './feed_components/PostList';
+
+
 const FeedPage = () => (
   <div className="FeedPage">
-    FeedPage Component
+    <PostList />
   </div>
 );
 
-FeedPage.propTypes = {};
-
-FeedPage.defaultProps = {};
 
 export default FeedPage;

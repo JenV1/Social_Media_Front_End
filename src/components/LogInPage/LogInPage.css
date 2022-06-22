@@ -1,18 +1,47 @@
 .LogInPage { 
     padding: 30px;
-    position: absolute;
     top: 50px;
-    height: 100vh;
+    height: 70vh;
     width: 100vw;
-    background: #E5E3C9;
+    background: rgb(229, 227, 201);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
 }
+
 
 input{
     display: block;
-    margin: 20px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
 }
 
 .wrong{
     border: 2px solid red;
     border-radius: 5px;
+}
+
+#loginPage--header{
+    padding: 20px;
+}
+
+#loginPage--form{
+    background: #94B49F;
+    display: flex;
+    border-radius: 5px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+}
+
+.submit-input{
+    border-radius: 5px;
+    background-color: #515E63;
+    color: white;
 }
