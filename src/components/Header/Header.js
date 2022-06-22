@@ -8,10 +8,15 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-const Header = () => {
+const Header = (props) => {
   //flase means close the side nav, and true means want open the side nav
 
-  const [wantOpen, setWantOpen] = useState(false)
+  const [wantOpen, setWantOpen] = useState(false);
+
+  //check if show the earth
+
+
+
 
   const spanStyle = {
     fontSize: "30px", 
@@ -50,6 +55,26 @@ const Header = () => {
   const filterLogInUser = users.filter((each) => {
       return each.userLoggedIn === true;
     })
+
+
+  const EarthOrNot = () =>{
+    
+    return  (
+      <>
+        <div id='mySidenav' className = "sidenav" style =  {wantOpen ?  sideNavOpenStyle :sideNavCloseStyle} >
+          <a href= "#" className="closebtn" onClick= {closeNav} >&times;</a>
+          <a href="http://localhost:3000/login">Log In Again</a>
+          <a href="#" onClick={handleClickLogOut}>Log Out</a>
+          <a href="http://localhost:3000/settings">Setting</a>
+          <a href="http://localhost:3000/feedPage">Posts</a>
+        </div> 
+
+        <div id='earthButton'>
+          <span style = {spanStyle} onClick = {openNav} >&#9776; &#127759;</span>
+        </div>
+      </> )}
+
+  
   
 
   const handleClickLogOut = () =>{
@@ -89,18 +114,8 @@ return (
                 What you can do here
               </NavDropdown.Item>
             </NavDropdown>
-            
-            <div id='mySidenav' className = "sidenav" style =  {wantOpen ?  sideNavOpenStyle :sideNavCloseStyle} >
-              <a href= "#" className="closebtn" onClick= {closeNav} >&times;</a>
-              <a href="http://localhost:3000/login">Log In Again</a>
-              <a href="http://localhost:3000" onClick={handleClickLogOut}>Log Out</a>
-              <a href="http://localhost:3000/settings">Setting</a>
-              <a href="http://localhost:3000/feedPage">Posts</a>
-            </div> 
 
-            <div id='earthButton'>
-              <span style = {spanStyle} onClick = {openNav} >&#9776; &#127759;</span>
-            </div>
+            {props.open === "true" && <EarthOrNot/>}
             
           </Nav>
         </Navbar.Collapse>
