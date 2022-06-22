@@ -5,6 +5,7 @@ import axios from 'axios';
 
 import AddNewPost from "./AddNewPost";
 import './PostList.css';
+import Search from "./SearchByUserKeyword/Search";
 
 
 const PostList = () => {
@@ -61,6 +62,7 @@ const PostList = () => {
 
                 <AddNewPost user={user} nextID={nextPostID} />
             </div>
+            <Search />
             <div className="post-container">
                 {
                     posts.map(post => {
