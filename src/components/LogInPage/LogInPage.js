@@ -75,7 +75,7 @@ const LogInPage = () => {
 
 
   return(
-    <>
+    <div className='loginpage--content'>
     
     <Header />
     <div className="LogInPage">
@@ -94,7 +94,7 @@ const LogInPage = () => {
 
       </div>
       <Footer />
-    </>
+    </div>
 
   )
   
