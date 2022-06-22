@@ -55,8 +55,14 @@ const RegisterPage = () => {
       alert("You must give a unique username, please try again")
       return;
     }
+
     const username = event.target[0].value
     const password = event.target[1].value
+    const dob = event.target[2].value
+    const company = event.target[3].value
+    const role = event.target[4].value
+    const isBusinessAccount = event.target[5].checked
+
 
     fetch(`http://localhost:8080/addNewUser?name=${username}&password=${password}&date_of_birth=${dob}&company=${company}&role=${role}&isBusinessAccount=${isBusinessAccount}`, 
           {
