@@ -20,10 +20,13 @@ const LogInPage = ({checkLogInStatus, pageRedirect}) => {
 
   window.onload = function(){
     const loggedIn = checkLogInStatus()
+    console.log(loggedIn)
     if(loggedIn){
       pageRedirect("http://localhost:3000/feedPage")
     }
   }
+
+  
 
 
   const checkLogInDetails = (event) => {
@@ -91,7 +94,7 @@ const LogInPage = ({checkLogInStatus, pageRedirect}) => {
           <label id="password-input-label" htmlFor="password-input">Password: </label>
           <input onChange={event => setPassword(event.target.value)} type="password" id="password-input" name="password-input" placeholder="Password..." value={password}/>
           <p id="password-error-message"></p>
-          <input type="submit" class="submit-input"/>
+          <input type="submit" className="submit-input"/>
         <a href="/register">Or register a new account here</a>
         </form>
 

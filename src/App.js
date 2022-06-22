@@ -26,29 +26,30 @@ function App() {
   }, [users])
 
 
-  const checkLoginStatus = () => {
+  const checkLogInStatus = () => {
     let loggedIn = false;
     for(let user of users){
         if(user.userLoggedIn){
           loggedIn = true;
         }
     }
-    return true;
+    return loggedIn;
   }
 
   const pageRedirect = (targetURL) => {
       window.location.replace(targetURL)
   }
 
+
   return (
    <div className='content'>
     <Router>
       <Routes>
           <Route exact path="/" element={<LandingPage />} />
-          <Route path="/login" element={<LogInPage checkLoginStatus={checkLoginStatus} pageRedirect={pageRedirect}/>}/>
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/settings" element={<SettingsPage />} />
-          <Route path="/feedPage" element={<FeedPage />} />
+          <Route path="/login"  element={<LogInPage checkLogInStatus={checkLogInStatus} pageRedirect={pageRedirect}/>}/>
+          <Route path="/register" element={<RegisterPage checkLogInStatus={checkLogInStatus} pageRedirect={pageRedirect}/>} />
+          <Route path="/settings" element={<SettingsPage checkLogInStatus={checkLogInStatus} pageRedirect={pageRedirect}/>} />
+          <Route path="/feedPage" element={<FeedPage checkLogInStatus={checkLogInStatus} pageRedirect={pageRedirect}/>} />
       </Routes>
     </Router>
    </div>
