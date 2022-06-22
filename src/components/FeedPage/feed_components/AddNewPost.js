@@ -30,7 +30,7 @@ const AddNewPost = ({nextID, user}) => {
         <>
             <form onSubmit={createNewPost} className="add-post-form">
                 <label>
-                    <input type="text" name="content" onChange={handleContentChange} placeholder="What's on your mind?"/>
+                    <input className="input-content" type="text" name="content" onChange={handleContentChange} placeholder="What's on your mind?"/>
                 </label>
                 <label className="event-dropdown" name="post_type" onChange={handlePostTypeChange}>
                     <select>
@@ -42,7 +42,7 @@ const AddNewPost = ({nextID, user}) => {
                         <option value="5">EVENT PLAN</option>
                     </select>
                 </label>
-            <input type="submit" value="Post"/>
+            <input type="submit" value="Post" className='post-btn'/>
 
             </form>
         </>

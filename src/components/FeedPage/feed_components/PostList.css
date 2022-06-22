@@ -10,17 +10,22 @@
 }
 
 .post-item {
-    border: 1px solid black;
-    margin-top: 5px;
+    /* border: 1px solid black; */
+    margin-top: 10px;
     margin-bottom: 5px;
     padding:10px;
     text-align: left;
     width: 600px;
+    background:#E5E3C9;
+    border:solid 5px #515E63;
+    border-radius: 255px 10px 225px 10px/10px 225px 10px 255px;
+
+
 }
 
 .hearted-comment {
     font-style: italic;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .button-and-post-container {
@@ -31,7 +36,23 @@
 
 .business-btn {
     border-radius: 50%;
-    margin-right: 30px;
+    height: 50px;
+    margin-right: 40px;
     background-color: #789395;
     color: white;
+}
+
+.edit-post-btn {
+    background-color: #789395;
+    color: white;
+    width: 450px;
+}
+
+.edit-content {
+    margin-top: 10px;
+    width: 450px;
+}
+
+.edit-post-form {
+    text-align: center;
 }

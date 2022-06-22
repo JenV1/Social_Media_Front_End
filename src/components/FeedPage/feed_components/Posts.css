@@ -17,3 +17,34 @@
     opacity: 60%;
     font-style: italic;
 }
+
+.comment-container {
+    display: inline-block;
+    list-style-type: none;
+}
+
+.comment-item {
+    text-align: left;
+    width: 400px;
+    margin-left: 50px;
+}
+
+.superLike {
+    float:right;
+}
+
+.likes-and-add-comment {
+    margin-bottom: 20px;
+}
+
+.emoji {
+    font-style: normal;
+}
+
+.username-more-info .popup {
+    display: none;
+}
+
+.username-more-info:hover .popup {
+    display: block;
+}

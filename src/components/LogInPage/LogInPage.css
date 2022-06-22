@@ -1,21 +1,28 @@
 .LogInPage { 
     padding: 30px;
-    top: 50px;
     height: 70vh;
     width: 100vw;
-    background: rgb(229, 227, 201);
     text-align: center;
     display: flex;
     flex-direction: column;
+    animation: swoopInLeft 1s .2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+    transform: translateX(-100%);
 }
 
+.loginpage--content{
+    background: rgb(229,227,201);
+}
 
-input{
+.input-box{
     display: block;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 15px;
+    border-radius: 5px;
+    border-width: 1px;
 }
 
 .wrong{
@@ -38,10 +45,40 @@ input{
     margin-left: auto;
     margin-right: auto;
     padding: 20px;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
 .submit-input{
     border-radius: 5px;
     background-color: #515E63;
     color: white;
+}
+
+header{
+    animation: swoopInDown .5s;
+}
+
+footer{
+    animation: swoopInUp .5s;
+}
+
+@keyframes swoopInDown {
+    from{transform: translateY(-100%)}
+    to{
+        transform: translateY(0);
+    }
+}
+
+@keyframes swoopInLeft {
+    from{transform: translateX(-100%)}
+    to{
+        transform: translateX(0);
+    }
+}
+
+@keyframes swoopInUp {
+    from{transform: translateY(100%)}
+    to{
+        transform: translateY(0);
+    }
 }

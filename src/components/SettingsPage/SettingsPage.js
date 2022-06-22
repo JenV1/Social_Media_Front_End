@@ -9,6 +9,7 @@ import Footer from '../Footer/Footer';
 
 const SettingsPage = () => {
 
+
   //initial useState so that props can be passed before API has loaded
   const modelUser = {
     name: "",
@@ -64,7 +65,7 @@ const SettingsPage = () => {
   //what is actually rendered on the page - depends on the truth values of the display fields
   return(
   <>
-    <div><Header /></div>
+    <Header open="true" />
     <div className="SettingsPage">
       <h1>Settings</h1>
       {showUserInformation ? <CurrentDetails user={user} hiddenPassword={hiddenPassword}/> : null}
@@ -72,11 +73,11 @@ const SettingsPage = () => {
       {showUpdateFields ?  <UpdateForm user={user} /> : null}
       <div className="SettingsButtonContainer">
           {showUpdateFields ? <button onClick={handleClickReturnToSettings}>Return to Settings</button> : null}  
-          {showUpdateDetailsButton ? <UpdateDetails handleClick={handleClickUpdateDetails} /> : null}  
-          <button href="/">Return to Feed</button>
+          {showUpdateDetailsButton ? <UpdateDetails handleClick={handleClickUpdateDetails} /> : null} 
+          <a href='/feedPage'><button>Return to Feed</button></a>
       </div>
     </div>
-    <div><Footer /></div>
+    <Footer />
   </>
 )};
 

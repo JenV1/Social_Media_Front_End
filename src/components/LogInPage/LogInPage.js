@@ -3,6 +3,7 @@ import './LogInPage.css';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
+
 const LogInPage = () => {
 
   const [username, setUsername] = useState("");
@@ -15,6 +16,10 @@ const LogInPage = () => {
       .then(data => setUsers(data))
       .catch(err => console.log(err))
   })
+
+
+
+  
 
 
   const checkLogInDetails = (event) => {
@@ -70,26 +75,26 @@ const LogInPage = () => {
 
 
   return(
-    <>
+    <div className='loginpage--content'>
     
     <Header />
     <div className="LogInPage">
         <h1 id="loginPage--header" >Log In Page</h1>
         <form id="loginPage--form" onSubmit={handleLogInSubmit} action="http://localhost:3000/feedPage">
           <label id="username-input-label" htmlFor='username-input'>Username: </label>
-          <input onChange={event => setUsername(event.target.value)} value={username} type="text" id="username-input" placeholder='Username/email....' name="username-input"/>
+          <input className="input-box" onChange={event => setUsername(event.target.value)} value={username} type="text" id="username-input" placeholder='Username/email....' name="username-input"/>
           <p id="username-error-message"></p>
           <label id="password-input-label" htmlFor="password-input">Password: </label>
-          <input onChange={event => setPassword(event.target.value)} type="password" id="password-input" name="password-input" placeholder="Password..." value={password}/>
+          <input className="input-box" onChange={event => setPassword(event.target.value)} type="password" id="password-input" name="password-input" placeholder="Password..." value={password}/>
           <p id="password-error-message"></p>
-          <input type="submit" class="submit-input"/>
+          <input type="submit" className="submit-input"/>
         <a href="/register">Or register a new account here</a>
         </form>
 
 
       </div>
       <Footer />
-    </>
+    </div>
 
   )
   

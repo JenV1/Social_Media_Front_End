@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import './AddComment.css'
 
 const AddComment = ({user, post}) => {
 
@@ -17,11 +18,11 @@ const AddComment = ({user, post}) => {
 
     return(
         <>
-            <form onSubmit={CreateNewComment}>
+            <form className="form-comment" onSubmit={CreateNewComment}>
                 <label>
-                    <input type="text" onChange={handleCommentContent}/>
+                    <input placeholder='What do you think?' className="new-comment-content" type="text" onChange={handleCommentContent}/>
                 </label>
-                <input type="submit" />
+                <input className="commentForm-btn" type="submit" value="Comment" />
             </form>
 
         </>

@@ -15,6 +15,8 @@ const RegisterPage = () => {
 
   const [users, setUsers] = useState([]);
 
+  
+
   useEffect(() => {
     console.log(canLogIn)
   }, [canLogIn])
@@ -95,7 +97,7 @@ const RegisterPage = () => {
   }
 
   return(
-    <>
+    <div className='registerpage--content'>
     <Header />
 
   <div className="RegisterPage">
@@ -110,16 +112,16 @@ const RegisterPage = () => {
       <div id="register_page--password_bar_container"><div id="register_page--password_bar"></div></div>
 
       <label htmlFor="register_page--dob-input">DOB: </label>
-      <input onChange={event => setDOB(event.target.value)} value={dob} type="text" id="register_page--dob-input"/>
+      <input className="input-box" onChange={event => setDOB(event.target.value)} value={dob} type="text" id="register_page--dob-input"/>
 
       <label htmlFor="register_page--company-input">Company: </label>
-      <input onChange={event => setCompany(event.target.value)} value={company} type="text" id="register_page--company-input"/>
+      <input className="input-box" onChange={event => setCompany(event.target.value)} value={company} type="text" id="register_page--company-input"/>
 
       <label htmlFor="register_page--role-input">Role: </label>
-      <input onChange={event => setRole(event.target.value)} value={role} type="text" id="register_page--role-input"/>
+      <input className="input-box" onChange={event => setRole(event.target.value)} value={role} type="text" id="register_page--role-input"/>
 
       <label htmlFor="register_page--business-checkbox" id="business-checkbox--label">Is this a business account?
-      <input onChange={event => setIsBusinessAccount(event.target.value)} value={isBusinessAccount} type="checkbox" id="register_page--business-checkbox"/>
+      <input className="input-box" onChange={event => setIsBusinessAccount(event.target.value)} value={isBusinessAccount} type="checkbox" id="register_page--business-checkbox"/>
       </label>
       <input type="submit" className="submit-input" value="Register Account"/>
 
@@ -130,7 +132,7 @@ const RegisterPage = () => {
   </div>
 
   <Footer />
-    </>
+    </div>
   )
 };
 

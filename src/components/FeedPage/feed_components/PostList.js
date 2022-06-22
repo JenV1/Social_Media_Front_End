@@ -29,6 +29,7 @@ const PostList = () => {
     })
 
     const [posts, setPosts] = useState([]);
+    const [ids, setIDs] = useState([]);
     const [filteredByBusiness, setFilteredByBusiness] = useState(false);
 
     const [comments, setComments] = useState([]);
@@ -48,7 +49,9 @@ const PostList = () => {
         .then(response => {
             const posts = response.data;
             setPosts(posts);
-            setNextPostID(posts[posts.length - 1].id +1);
+            setIDs(posts.map(post => post.id, 10))
+            // setNextPostID(posts[posts.length - 1].id +1);
+            setNextPostID(Math.max.apply(Math, ids) +1);
         })
         .catch(err => console.log(err));
     }, [posts]);
@@ -61,7 +64,7 @@ const PostList = () => {
     return (
         <>
             <div className="button-and-post-container">
-                <button className="business-btn" onClick={handleFilterByBusiness}>Business Only</button>
+                <button className="business-btn" onClick={handleFilterByBusiness}>Business Posts Only</button>
 
                 <AddNewPost user={user} nextID={nextPostID} />
             </div>
@@ -71,7 +74,7 @@ const PostList = () => {
                     posts.map(post => {
                         if ((post.businessAccount && filteredByBusiness) || !filteredByBusiness) {
                             return <li className="post-item" key={post.id}>
-                                <Posts post={post} user={user} comments={comments.filter(comment => comment.post.id === post.id)}/>
+                                <p className="post"><Posts post={post} user={user} comments={comments.filter(comment => comment.post.id === post.id)}/></p>
                             </li>
                         }
                     })

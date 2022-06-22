@@ -1,0 +1,15 @@
+.commentForm-btn {
+    background-color: #789395;
+    color: white;
+    width: 400px;
+}
+
+.new-comment-content {
+    width: 400px;
+}
+
+.form-comment {
+   text-align: center;
+   margin-top: 20px;
+}
+
