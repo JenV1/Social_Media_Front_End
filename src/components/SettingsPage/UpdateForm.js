@@ -68,7 +68,7 @@ const UpdateForm = ({user}) => {
         <div className="UpdateForm">
             <h3>Update Profile Information</h3>
             <UpdateField fieldName={"Username"} onClick={handleUpdateName} onChange={handleNameChange} inputValue={inputName} buttonName={"name"}/>
-            <UpdateField fieldName={"Password"} onClick={handleUpdatePassword} onChange={handlePasswordChange} inputValue={inputPassword} buttonName={"password"}
+            <UpdateField fieldName={"Password"} onClick={handleUpdatePassword} onChange={handlePasswordChange} inputValue={inputPassword}
                 isPasswordField={true} showErrorMessage={showErrorMessage} checkPassword={checkPassword} onCheckPasswordChange={handleCheckPasswordChange} /> 
             <UpdateField fieldName={"Company"} onClick={handleUpdateCompany} onChange={handleCompanyChange} inputValue={inputCompany} buttonName={"company"}/>
             <UpdateField fieldName={"Date of Birth"} onClick={handleUpdateDOB} onChange={handleDOBChange} inputValue={inputDOB} buttonName={"DOB"}/>
