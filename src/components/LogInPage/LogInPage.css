@@ -1,14 +1,17 @@
 .LogInPage { 
     padding: 30px;
-    top: 50px;
     height: 70vh;
     width: 100vw;
     background: rgb(229, 227, 201);
     text-align: center;
     display: flex;
     flex-direction: column;
+    animation: swoopInLeft 1s;
 }
 
+.loginpage--content{
+    background: rgb(229,227,201);
+}
 
 input{
     display: block;
@@ -44,4 +47,33 @@ input{
     border-radius: 5px;
     background-color: #515E63;
     color: white;
+}
+
+header{
+    animation: swoopInDown 1s;
+}
+
+footer{
+    animation: swoopInUp 1s;
+}
+
+@keyframes swoopInDown {
+    from{transform: translateY(-100%)}
+    to{
+        transform: translateY(0);
+    }
+}
+
+@keyframes swoopInLeft {
+    from{transform: translateX(-100%)}
+    to{
+        transform: translateX(0);
+    }
+}
+
+@keyframes swoopInUp {
+    from{transform: translateY(100%)}
+    to{
+        transform: translateY(0);
+    }
 }
