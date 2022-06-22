@@ -1,1 +1,133 @@
-.SettingsPage {}
+.SettingsPage {
+    background-color: #FCF8E8;
+    padding-bottom: 50px;
+}
+
+.SettingsPage h1 {
+    padding: 30px;
+}
+.SettingsPage h3{
+    padding: 20px;
+    text-align: center;
+}
+
+.SettingsPage button {
+    border-radius: 10px;
+    background: #515E63;
+    color: #FCF8E8;
+    padding: 3px 5px;
+    margin: 20px;
+}
+
+.SettingsButtonContainer{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+ .ProfileInformation {
+    background: #94B49F;
+    padding: 10px 30px 20px;
+    width: 400px;
+    margin: auto;
+    display: grid;
+    grid-template-areas: 
+    "title title"
+    "name name"
+    "password button"
+    "DOB DOB"
+    "company company"
+    "role role"
+    "business business";
+}
+
+.ProfileInformation button {
+    border-radius: 0%;
+    font-size: 0.8rem;
+    font-weight: 300;
+    float: right;
+    background: #C9D8B6;
+    color: #515E63;
+    border: 1px solid #515E63;
+    width: 120px;
+    height: 25px;
+    grid-area: button;
+    padding: 0px;
+    margin: 0px;
+    
+ }
+
+#ProfileInformation-password{
+    grid-area: password;
+    width: 220px;
+} 
+#ProfileInformation-heading{
+    grid-area: title;
+}
+#ProfileInformation-name{
+    grid-area: name;
+}
+#ProfileInformation-company{
+    grid-area: company;
+}
+#ProfileInformation-DOB{
+    grid-area: DOB;
+}
+#ProfileInformation-role{
+    grid-area: role;
+}
+#ProfileInformation-business{
+    grid-area: business;
+}
+.UpdateForm {
+    background: #B4CFB0;
+    padding: 20px;
+    width: 500px;
+    margin: auto;
+    text-align: center;
+    display: grid;
+    grid-template: auto/ 1fr;
+    row-gap: 10px;
+}
+
+.UpdateForm button {
+    width: fit-content;
+    margin: auto;
+}
+
+.UpdateField{
+    display: grid;
+    grid-template: 1fr 1.5fr/1fr 1fr;
+    gap: 5px;
+}
+.UpdateField label{
+    grid-row: 1/ span 1 ;
+    grid-column: 1/ span 2;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.UpdateField input{
+    background-color: #FCF8E8;
+    color: #515E63;
+    border: 1px solid #515E63;
+    margin-left: 30px;
+    margin-right: 0px;
+    margin-top: auto;
+    width: 250px;
+}
+
+.UpdateField button {
+    border-radius: 0%;
+    font-size: 0.8rem;
+    font-weight: 400;
+    width: 140px;
+    height: 27px;
+    background: #C9D8B6;
+    color: #515E63;
+    border: 1px solid #515E63;
+    margin-left: 10px;
+    margin-top: 0px;
+}

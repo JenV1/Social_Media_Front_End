@@ -77,6 +77,7 @@ const LogInPage = ({checkLogInStatus, pageRedirect}) => {
 
   }
 
+
   return(
     <>
     
@@ -103,5 +104,7 @@ const LogInPage = ({checkLogInStatus, pageRedirect}) => {
   
   };
 
+  
 
 export default LogInPage;
+
