@@ -4,7 +4,7 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
 
-const LogInPage = () => {
+const LogInPage = ({checkLogInStatus, pageRedirect}) => {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -16,6 +16,14 @@ const LogInPage = () => {
       .then(data => setUsers(data))
       .catch(err => console.log(err))
   })
+
+
+  window.onload = function(){
+    const loggedIn = checkLogInStatus()
+    if(loggedIn){
+      pageRedirect("http://localhost:3000/feedPage")
+    }
+  }
 
 
   const checkLogInDetails = (event) => {
