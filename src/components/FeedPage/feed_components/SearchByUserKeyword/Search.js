@@ -4,6 +4,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import { MDBCol, MDBFormInline, MDBBtn } from "mdbreact";
+import Posts from "../Posts";
 
 
 const Search = () => {
@@ -13,6 +14,9 @@ const Search = () => {
     const [keyword, setKeyword] = useState("");
     const [targetpost, setTargetPost] = useState({})
 
+    const [popTarget,setPopTarget] = useState(false)
+
+
     // catch the keyword value
     const handleChangeByKeyword = (event) =>{
         const currentValue = event.target.value;
@@ -21,6 +25,19 @@ const Search = () => {
     }
 
     const [posts, setPosts] = useState([]);
+
+
+    const [comments, setComments] = useState([]);
+
+    useEffect(() => {
+        axios.get(`http://127.0.0.1:8080/showAllComments`)
+        .then(response => { 
+            const comments = response.data;
+            setComments(comments);
+        })
+        .catch(err => console.log(err));
+    }, [posts]);
+
 
     const handleClickByKeyword = () =>{
 
@@ -34,8 +51,6 @@ const Search = () => {
             function2();
         })
 
-
-
         const function2 = () => {
 
         fetch(`http://localhost:8080/list_all_posts`)
@@ -48,19 +63,15 @@ const Search = () => {
         console.log(posts)
         console.log(contentsByKeyword)
         
-        posts.map(post =>{
+        posts.map(post => {
             if (post.content_text === contentsByKeyword) {
                 console.log(post)
                 setTargetPost(post);
+                setPopTarget(true);
             } 
-        })
+        })}
 
-        return(
-            <h1>{targetpost}</h1>
-        )
-        
 
-    }
 
 
     }
@@ -73,7 +84,9 @@ const Search = () => {
     <div>
         <input type="text" placeholder="Search By Keyword" onChange={handleChangeByKeyword} />
         <button type="submit" onClick={handleClickByKeyword}>Click Me!</button>
-
+        {popTarget && <Posts post={targetpost} user={targetpost.user.name} comments={comments.filter(comment => comment.targetpost.id === targetpost.id)}/>
+}
+        
     </div>
 
   );

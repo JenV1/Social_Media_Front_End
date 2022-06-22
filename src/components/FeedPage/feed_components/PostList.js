@@ -55,6 +55,9 @@ const PostList = () => {
 
     const handleFilterByBusiness = () => setFilteredByBusiness(!filteredByBusiness);
 
+  
+
+
     return (
         <>
             <div className="button-and-post-container">
