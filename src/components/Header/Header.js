@@ -85,7 +85,9 @@ const Header = (props) => {
     const userName = filterLogInUser[0].name;
     const password = filterLogInUser[0].password
     fetch(`http://localhost:8080/logUserOut?username=${userName}&password=${password}`, requestOptions)
-    .then(result => console.log(`log out ${userName}`))
+    .then(result => {
+      console.log(`log out ${userName}`)
+      alert(`ByeBye${userName}`)})
     .catch(error => console.log(error))
     //no log out Jem, weird.
 
