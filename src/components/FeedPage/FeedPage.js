@@ -7,14 +7,8 @@ import Footer from '../Footer/Footer';
 import PostList from './feed_components/PostList';
 
 
-const FeedPage = ({checkLogInStatus, pageRedirect}) => {
-  
-  window.onload = function(){
-    const loggedIn = checkLogInStatus()
-    if(!loggedIn){
-      pageRedirect("http://localhost:3000/")
-    }
-  }
+const FeedPage = () => {
+
   return(
   <div className="FeedPage">
     <Header open="true"  />
