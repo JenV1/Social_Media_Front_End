@@ -7,6 +7,7 @@ import axios from 'axios';
 import PostEdit from './PostEdit';
 import userEvent from '@testing-library/user-event';
 import AddComment from './AddComment';
+import SuperLikeComment from './SuperLikeComment';
 
  const Posts = ({post, comments, user}) => {
 
@@ -59,7 +60,7 @@ import AddComment from './AddComment';
             <p>&#8618;&#65039; {comments.length} <span className='add-comment'>comments</span></p>
 
 
-            <h4><span style={{cursor:'pointer'}} onClick={() => {
+            <h4 className="likes-and-add-comment"><span style={{cursor:'pointer'}} onClick={() => {
                 fetch(`http://127.0.0.1:8080/addLikeToPost/${post.id}`, {
                     method:'PUT',
                     headers:{
@@ -83,18 +84,9 @@ import AddComment from './AddComment';
                 comments.map(comment => {
                     if (isShowingComments) {
                         return <>
-                        <div className="comment">
-                        <p className={comment.heartByUser ? 'hearted-comment' : ''} key={comment.id} >&#128073;{` ${comment.commentContent}`} 
-                        {post.user.userLoggedIn ? <span style={{cursor:'pointer'}}
-                        onClick={() => {
-                            const options = {
-                                method: "PUT",
-                            }
-                    
-                            fetch(`http://127.0.0.1:8080/heartComment?userName=${user.name}&ID_of_comment_to_be_hearted=${comment.id}`, options)
-                            .catch(err => console.log(err));
-                        }}>&#128155;</span> : null}</p>
-                        </div>
+                        <ul className="comment-container">
+                            <SuperLikeComment user={user} comment={comment} post={post}/>
+                        </ul>
                         </>
                     }
                 })

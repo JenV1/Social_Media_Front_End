@@ -23,10 +23,10 @@ const PostEdit = ({post, changePost, turnOffEditing}) => {
         <>  
             <form onSubmit={handleEdit}>
                 <label>
-                    <input type="text" name="content" value={newPostContent} 
+                    <input className="edit-content" type="text" name="content" value={newPostContent} 
                     onChange={handleContentChange}/>
                 </label>
-                <input type="submit" />
+                <input className="edit-post-btn" type="submit" value="Edit Post" />
             </form>
         </>
     )
