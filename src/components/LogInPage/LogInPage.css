@@ -12,6 +12,7 @@
 }
 
 .loginpage--content{
+    position: relative;
     background: rgb(229,227,201);
 }
 
@@ -35,7 +36,7 @@
 }
 
 #loginPage--form{
-    background: #94B49F;
+    background: #94B49F;    
     display: flex;
     border-radius: 5px;
     flex-direction: column;
@@ -46,6 +47,18 @@
     margin-right: auto;
     padding: 20px;
     box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.loginpage--content::before{
+    background-image: url("https://images.pexels.com/photos/1534925/pexels-photo-1534925.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    content: "";
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    display: block;
+    opacity: 0.1;
 }
 
 .submit-input{

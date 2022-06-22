@@ -5,6 +5,7 @@ import axios from 'axios';
 
 import AddNewPost from "./AddNewPost";
 import './PostList.css';
+import Search from "./SearchByUserKeyword/Search";
 
 
 const PostList = () => {
@@ -57,13 +58,106 @@ const PostList = () => {
 
     const handleFilterByBusiness = () => setFilteredByBusiness(!filteredByBusiness);
 
+
+    //search by keyword ALL
+
+
+    // search by keyword
+    const [contentsByKeyword, setContentsByKeyword] = useState("");
+    const [keyword, setKeyword] = useState("");
+    const [targetpost, setTargetPost] = useState({})
+
+    const [popTarget,setPopTarget] = useState(false)
+
+
+    // catch the keyword value
+    const handleChangeByKeyword = (event) =>{
+        const currentValue = event.target.value;
+        setKeyword(currentValue)
+        console.log(currentValue)
+    }
+
+    const [posts2, setPosts2] = useState([]);
+
+
+    const [comments2, setComments2] = useState([]);
+
+    useEffect(() => {
+        axios.get(`http://127.0.0.1:8080/showAllComments`)
+        .then(response => { 
+            const comments = response.data;
+            setComments(comments);
+        })
+        .catch(err => console.log(err));
+    }, [posts]);
+
+
+    const handleClickByKeyword = () =>{
+
+        fetch(`http://localhost:8080/searchForKeyword/${keyword}`)
+        .then(response => 
+        response.json())
+        .then(result => {
+            setContentsByKeyword(result[0]);
+        } )
+        .then(result2 => {
+            function2();
+        })
+
+        const function2 = () => {
+
+        fetch(`http://localhost:8080/list_all_posts`)
+        .then(response => 
+        response.json())
+        .then(result => {
+            setPosts(result)
+        } )
+
+        console.log(posts)
+        console.log(contentsByKeyword)
+        
+        posts.map(post => {
+            if (post.content_text === contentsByKeyword) {
+                console.log(post)
+                setTargetPost(post);
+                setPopTarget(true);
+            } 
+        })}
+
+
+
+
+    }
+
+
+
+
+  
+
+
     return (
         <>
             <div className="button-and-post-container">
                 <button className="business-btn" onClick={handleFilterByBusiness}>Business Posts Only</button>
-
                 <AddNewPost user={user} nextID={nextPostID} />
+
             </div>
+
+            
+            <div className="search-bar">
+                <input className = "search-input" type="text" placeholder = "Input keyword here..." onChange={handleChangeByKeyword} />
+                <button className="btn" type="submit" onClick={handleClickByKeyword} >Search</button>
+            </div>
+
+            {popTarget &&
+            <div className="keyword-box">
+                <h4>{`All posts with "${keyword}" `}</h4>
+                <li className="post-item">
+                <Posts post={targetpost} user={targetpost.user.name} comments={comments2.filter(comment => comment.targetpost.id === targetpost.id)}/>
+                </li>
+            </div> }
+         
+            
             <div className="post-container">
                 {
                     posts.map(post => {
@@ -75,6 +169,9 @@ const PostList = () => {
                     })
                 }
             </div>
+
+
+
         </>
     )
 }

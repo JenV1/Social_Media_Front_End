@@ -15,9 +15,6 @@ const Header = (props) => {
 
   //check if show the earth
 
-
-
-
   const spanStyle = {
     fontSize: "30px", 
     cursor :  "pointer"
@@ -89,9 +86,9 @@ const Header = (props) => {
       console.log(`log out ${userName}`)
       alert(`ByeBye${userName}`)})
     .catch(error => console.log(error))
-    //no log out Jem, weird.
 
 }
+
 
 
 
