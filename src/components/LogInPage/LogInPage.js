@@ -20,7 +20,6 @@ const LogInPage = ({checkLogInStatus, pageRedirect}) => {
 
   window.onload = function(){
     const loggedIn = checkLogInStatus()
-    console.log(loggedIn)
     if(loggedIn){
       pageRedirect("http://localhost:3000/feedPage")
     }

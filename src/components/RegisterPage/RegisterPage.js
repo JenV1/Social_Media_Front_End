@@ -4,7 +4,7 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Input from '../FormComponents/Input';
 
-const RegisterPage = () => {
+const RegisterPage = ({checkLogInStatus, pageRedirect}) => {
 
   const [company, setCompany] = useState("");
   const [role, setRole] = useState("");
@@ -14,6 +14,13 @@ const RegisterPage = () => {
   const [canLogIn, setCanLogIn] = useState(true);
 
   const [users, setUsers] = useState([]);
+
+  window.onload = function(){
+    const loggedIn = checkLogInStatus()
+    if(loggedIn){
+      pageRedirect("http://localhost:3000/feedPage")
+    }
+  }
 
   useEffect(() => {
     console.log(canLogIn)

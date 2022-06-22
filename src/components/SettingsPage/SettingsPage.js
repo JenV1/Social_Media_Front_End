@@ -7,7 +7,14 @@ import CurrentDetails from './CurrentDetails';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
-const SettingsPage = () => {
+const SettingsPage = ({checkLogInStatus, pageRedirect}) => {
+
+  window.onload = function(){
+    const loggedIn = checkLogInStatus()
+    if(!loggedIn){
+      pageRedirect("http://localhost:3000/")
+    }
+  }
 
   //initial useState so that props can be passed before API has loaded
   const modelUser = {
