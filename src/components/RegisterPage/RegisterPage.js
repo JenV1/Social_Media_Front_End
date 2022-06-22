@@ -121,7 +121,7 @@ const RegisterPage = () => {
       <label htmlFor="register_page--business-checkbox" id="business-checkbox--label">Is this a business account?
       <input onChange={event => setIsBusinessAccount(event.target.value)} value={isBusinessAccount} type="checkbox" id="register_page--business-checkbox"/>
       </label>
-      <input type="submit" class="submit-input" value="Register Account"/>
+      <input type="submit" className="submit-input" value="Register Account"/>
 
 
     <a href="/login">Or log in to an existing account here</a>

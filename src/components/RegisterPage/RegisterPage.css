@@ -51,13 +51,13 @@
 
 #register_page--password_bar.red{
     background-color: red;
-    width: 50px;
+    width: 33%;
     transition: background-color 2s, width 1s;
 }
 
 #register_page--password_bar.yellow{
     background-color: yellow;
-    width: 100px;
+    width: 66%;
     transition: background-color 2s, width 1s;
 
 }
