@@ -29,7 +29,7 @@ const UpdateField = ({fieldName, onClick, onChange, inputValue, buttonName,
 
     const passwordField = (
         <div className="UpdateField UpdatePasswordField">
-            <label htmlFor="password">Update Your Password: </label>
+            <label htmlFor="password">Update Your Password:</label>
             <input type={showPassword ? "text" : "password"} id="password" name="password"
                 placeholder={"New Password"} onChange={onChange} value={inputValue}
                 onKeyDown ={(event) => {if (event.key == 'Enter')
