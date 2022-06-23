@@ -23,7 +23,7 @@ const LogInPage = () => {
         }
       })
       .catch(err => console.log(err))
-  }, [])
+  }, [users])
 
 
 
