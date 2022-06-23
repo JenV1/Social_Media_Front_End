@@ -11,7 +11,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const Header = (props) => {
   //flase means close the side nav, and true means want open the side nav
 
-  const [wantOpen, setWantOpen] = useState(false);
+  // const [wantOpen, setWantOpen] = useState(false);
+  let wantOpen = false;
 
   //check if show the earth
 
@@ -34,10 +35,10 @@ const Header = (props) => {
 
 
   const openNav = () =>{
-      setWantOpen(true)
+      wantOpen = true
   }
   const closeNav = () =>{
-      setWantOpen(false)
+      wantOpen =false
   }
 
 
@@ -87,12 +88,6 @@ const Header = (props) => {
         
       </> )
       }
-
-  
-  
-
-
-
 
 
 
