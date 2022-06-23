@@ -13,7 +13,14 @@ const LogInPage = () => {
   useEffect( () => {
     fetch("http://127.0.0.1:8080/list_all_users")
       .then(response => response.json())
-      .then(data => setUsers(data))
+      .then(data => {setUsers(data)
+        const loggedInUser = users.filter(
+          user => user.userLoggedIn
+        )
+        if (loggedInUser.length > 0){
+          window.location.replace("http://localhost:3000/feedPage")
+        }
+      })
       .catch(err => console.log(err))
   })
 
