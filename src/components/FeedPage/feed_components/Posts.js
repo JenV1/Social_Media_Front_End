@@ -56,12 +56,24 @@ import SuperLikeComment from './SuperLikeComment';
                         &#9997;&#65039;</span>
                     {isEditing ? <PostEdit post={post} changePost={changePost} turnOffEditing={turnOffEditing}/> : null}
                 </span> : null}</h2>
+
+            <span className='add-comment'>{post.post_types_id === 1 ? <span>Advertisement</span> : null}</span>
+            <span className='add-comment'>{post.post_types_id === 2 ? <span>Event</span> : null}</span>
+            <span className='add-comment'>{post.post_types_id === 3 ? <span>Lifestyle</span> : null}</span>
+            <span className='add-comment'>{post.post_types_id === 4 ? <span>Fundraiser</span> : null}</span>
+            <span className='add-comment'>{post.post_types_id === 5 ? <span>Event plan</span> : null}</span>
+        
+
             <p className='post-by-text'>Post by 
             <span className="username-more-info"> {post.user.name}
                     <span className='popup'>{post.user.role} at {post.user.company}</span>
             </span>
             </p>
-            <p>&#8618;&#65039; {comments.length} <span className='add-comment'>comments</span></p>
+            <p style={{cursor:'pointer'}} onClick={() => {
+                if (!isAddingComments) {
+                    setIsShowingComments(!isShowingComments);
+                }
+                }}>&#8618;&#65039; {comments.length} <span className='add-comment'>comments</span></p>
 
 
             <h4 className="likes-and-add-comment"><span style={{cursor:'pointer'}} onClick={() => {
