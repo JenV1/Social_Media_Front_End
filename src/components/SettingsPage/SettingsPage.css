@@ -19,6 +19,13 @@
     margin-top: 30px;
 }
 
+.SettingsPage button:hover {
+
+    background: #B4CFB0;
+    text-decoration: none;
+    color: #515E63;
+}
+
 .SettingsButtonContainer{
     display: flex;
     flex-flow: row wrap;
