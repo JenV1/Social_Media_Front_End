@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './LogInPage.css';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import HeaderForLanding from '../Header/HeaderForLanding';
 
 
 const LogInPage = () => {
@@ -22,7 +23,7 @@ const LogInPage = () => {
         }
       })
       .catch(err => console.log(err))
-  })
+  }, [])
 
 
 
@@ -87,7 +88,7 @@ const LogInPage = () => {
   return(
     <div className='loginpage--content'>
     
-    <Header />
+    <HeaderForLanding />
     <div className="LogInPage">
         <h1 id="loginPage--header" >Log In Page</h1>
         <form id="loginPage--form" onSubmit={handleLogInSubmit} action="http://localhost:3000/feedPage">

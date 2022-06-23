@@ -29,7 +29,7 @@ const PostList = () => {
         })
         .catch(error => console.log(error))
         
-    })
+    }, [])
 
     const [posts, setPosts] = useState([]);
     const [ids, setIDs] = useState([]);

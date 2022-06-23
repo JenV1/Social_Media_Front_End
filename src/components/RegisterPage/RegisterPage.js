@@ -3,6 +3,7 @@ import './RegisterPage.css';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Input from '../FormComponents/Input';
+import HeaderForLanding from '../Header/HeaderForLanding';
 
 const RegisterPage = () => {
 
@@ -112,7 +113,7 @@ const RegisterPage = () => {
 
   return(
     <div className='registerpage--content'>
-    <Header />
+    <HeaderForLanding />
     
   <div className="RegisterPage">
     <h1 id="registerPage--header">Register Page: </h1>

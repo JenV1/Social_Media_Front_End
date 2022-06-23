@@ -8,7 +8,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-const Header = (props) => {
+const HeaderForLanding = (props) => {
   //flase means close the side nav, and true means want open the side nav
 
   const [wantOpen, setWantOpen] = useState(false);
@@ -122,14 +122,6 @@ return (
               </NavDropdown.Item>
             </NavDropdown>
 
-            <div id='earthButton'>
-              <NavDropdown title="&#127759;"  className='nav-link'>
-               <NavDropdown.Item href="http://localhost:3000" onClick={handleClickLogOut}>Log Out</NavDropdown.Item>
-               <NavDropdown.Item href="http://localhost:3000/settings">Settings</NavDropdown.Item>
-               <NavDropdown.Item href="http://localhost:3000/feedPage">Posts</NavDropdown.Item>
-              </NavDropdown>
-             </div>
-
             {/* {props.open === "true" && <EarthOrNot />} */}
             
           </Nav>
@@ -143,10 +135,10 @@ return (
 
 
 
-Header.propTypes = {};
+HeaderForLanding.propTypes = {};
 
-Header.defaultProps = {};
+HeaderForLanding.defaultProps = {};
 
 
-export default Header;
+export default HeaderForLanding;
 
