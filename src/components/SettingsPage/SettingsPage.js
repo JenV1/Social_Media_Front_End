@@ -68,7 +68,7 @@ const SettingsPage = () => {
 
   //what is actually rendered on the page - depends on the truth values of the display fields
   return(
-  <>
+  <div className="settings-page--content">
     <Header open="true" />
     <div className="SettingsPage">
       <h1>Settings</h1>
@@ -76,13 +76,13 @@ const SettingsPage = () => {
       
       {showUpdateFields ?  <UpdateForm user={user} /> : null}
       <div className="SettingsButtonContainer">
-          {showUpdateFields ? <button onClick={handleClickReturnToSettings}>Return to Settings</button> : null}  
+          {showUpdateFields ? <button onClick={handleClickReturnToSettings} >Return to Settings</button> : null}  
           {showUpdateDetailsButton ? <UpdateDetails handleClick={handleClickUpdateDetails} /> : null} 
           <a href='/feedPage'><button>Return to Feed</button></a>
       </div>
     </div>
     <Footer />
-  </>
+  </div>
 )};
 
 export default SettingsPage;

@@ -13,7 +13,8 @@
 
 .loginpage--content{
     position: relative;
-    background: rgb(229,227,201);
+    background: var(--background-color);
+    z-index: -1;
 }
 
 .input-box{
@@ -49,8 +50,13 @@
     box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
+:root{
+    --background-image: url("https://images.pexels.com/photos/1534925/pexels-photo-1534925.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    --background-color: rgb(229,227,201);
+}
+
 .loginpage--content::before{
-    background-image: url("https://images.pexels.com/photos/1534925/pexels-photo-1534925.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    background-image: var(--background-image);
     content: "";
     height: 100%;
     width: 100%;
@@ -59,6 +65,8 @@
     position: absolute;
     display: block;
     opacity: 0.1;
+    z-index: -1;
+
 }
 
 .submit-input{

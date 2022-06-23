@@ -73,7 +73,8 @@ import SuperLikeComment from './SuperLikeComment';
                 if (!isAddingComments) {
                     setIsShowingComments(!isShowingComments);
                 }
-                }}>&#8618;&#65039; {comments.length} <span className='add-comment'>comments</span></p>
+                }}>&#8618;&#65039; {comments.length} <span className='add-comment'>
+                    {comments.length === 1 ? <span>comment</span> : <span>comments</span>}</span></p>
 
 
             <h4 className="likes-and-add-comment"><span style={{cursor:'pointer'}} onClick={() => {
@@ -85,6 +86,13 @@ import SuperLikeComment from './SuperLikeComment';
                     body:JSON.stringify()
                 })
                 .then(response => setLikes(likes + 1))
+                .then(response => {
+                    window.scroll({
+                        top: document.body.offsetHeight,
+                        left: 0, 
+                        behavior: 'smooth',
+                      });
+                })
                 .catch(err => {console.log(err);});
             }}>
                 &#10084;&#65039;</span> {likes}
