@@ -15,17 +15,17 @@ const Header = (props) => {
 
   //check if show the earth
 
-
-
-
   const spanStyle = {
     fontSize: "30px", 
     cursor :  "pointer"
   }
 
   const sideNavCloseStyle = {
-    width: "0",
-    marginLeft : "0"}
+    // width: "0",
+    // marginLeft : "0"
+    width: "250px",
+    display : "none"
+  }
 
 
   const sideNavOpenStyle = {
@@ -40,9 +40,6 @@ const Header = (props) => {
       setWantOpen(false)
   }
 
-  const logOutBey = () =>{
-    alert("Say you")
-  }
 
   const [users, setUsers] = useState([]);
   useEffect( () => {
@@ -56,42 +53,46 @@ const Header = (props) => {
       return each.userLoggedIn === true;
     })
 
+  const handleClickLogOut = () =>{
+
+    const requestOptions = {
+        method: 'PUT'
+      }
+    const userName = filterLogInUser[0].name;
+    const password = filterLogInUser[0].password
+    fetch(`http://localhost:8080/logUserOut?username=${userName}&password=${password}`, requestOptions)
+      .then(result => {
+        console.log(`log out ${userName}`)
+        alert(`ByeBye${userName}`)})
+      .catch(error => console.log(error))
+  
+  }
 
   const EarthOrNot = () =>{
     
     return  (
       <>
+        <div id='earthButton'>
+          <span style = {spanStyle} onClick = {openNav} >&#9776; &#127759;</span>
+        </div>
+        
         <div id='mySidenav' className = "sidenav" style =  {wantOpen ?  sideNavOpenStyle :sideNavCloseStyle} >
           <a href= "#" className="closebtn" onClick= {closeNav} >&times;</a>
           <a href="http://localhost:3000/login">Log In Again</a>
-          <a href="http://localhost:3000/" onClick={handleClickLogOut}>Log Out</a>
+          <a href="http://localhost:3000" onClick={handleClickLogOut}>Log Out</a>
           <a href="http://localhost:3000/settings">Setting</a>
           <a href="http://localhost:3000/feedPage">Posts</a>
         </div> 
 
-        <div id='earthButton'>
-          <span style = {spanStyle} onClick = {openNav} >&#9776; &#127759;</span>
-        </div>
-      </> )}
+        
+      </> )
+      }
 
   
   
 
-  const handleClickLogOut = () =>{
 
-    const requestOptions = {
-      method: 'PUT'
-    }
-    const userName = filterLogInUser[0].name;
-    const password = filterLogInUser[0].password
-    fetch(`http://localhost:8080/logUserOut?username=${userName}&password=${password}`, requestOptions)
-    .then(result => {
-      console.log(`log out ${userName}`)
-      alert(`ByeBye${userName}`)})
-    .catch(error => console.log(error))
-    //no log out Jem, weird.
 
-}
 
 
 
@@ -117,7 +118,7 @@ return (
               </NavDropdown.Item>
             </NavDropdown>
 
-            {props.open === "true" && <EarthOrNot/>}
+            {props.open === "true" && <EarthOrNot />}
             
           </Nav>
         </Navbar.Collapse>

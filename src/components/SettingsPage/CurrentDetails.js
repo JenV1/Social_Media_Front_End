@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const CurrentDetails = ({user, hiddenPassword}) => {
-    //prop is deconstructed so the details can be passed into what is rendered on the page
+
     const {company, date_of_birth, is_business_account, name, password, role} = user;
 
     const [showPassword, setShowPassword] = useState(false);

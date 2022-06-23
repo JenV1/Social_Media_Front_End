@@ -16,6 +16,7 @@
     color: #FCF8E8;
     padding: 3px 5px;
     margin: 20px;
+    margin-top: 30px;
 }
 
 .SettingsButtonContainer{
@@ -40,6 +41,7 @@
     "company company"
     "role role"
     "business business";
+    animation: swoopInLeftSmall 0.5s;
 }
 
 .ProfileInformation button {
@@ -84,12 +86,14 @@
     opacity: 90%;
     border-radius: 5px;
     padding: 20px;
+    padding-bottom: 60px;
     width: 500px;
     margin: auto;
     text-align: center;
     display: grid;
     grid-template: auto/ 1fr;
     row-gap: 20px;
+    animation: swoopInRightSmall 0.5s;
 }
 
 .UpdateField{
@@ -159,5 +163,17 @@
     display: block;
     opacity: 0.1;
     z-index: -1;
+}
 
+@keyframes swoopInLeftSmall {
+    from{transform: translateX(-10%)}
+    to{
+        transform: translateX(0);
+    }
+}
+@keyframes swoopInRightSmall {
+    from{transform: translateX(10%)}
+    to{
+        transform: translateX(0);
+    }
 }

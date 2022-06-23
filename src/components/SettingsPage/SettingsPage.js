@@ -23,7 +23,8 @@ const SettingsPage = () => {
   const [user, setUser] = useState(modelUser);
   const [hiddenPassword, setHiddenPassword] = useState("");
   
-  //selects the first item from a list of logged in users - hopefully only one user at a time
+  //selects the first item from a list of logged in users - only one user long
+  // or redirects to Landing Page if no user logged in
   //then sets hiddenPassword to be a string of * the same length as the password of the user
   useEffect(() => {
     var apiUsers = [];
@@ -34,6 +35,9 @@ const SettingsPage = () => {
         const loggedInUser = apiUsers.filter(
           user => user.userLoggedIn
         )
+        if (loggedInUser.length == 0){
+          window.location.replace("http://localhost:3000/")
+        }
         setUser(loggedInUser[0])
         const passwordLength = user.password.length;
         setHiddenPassword(new Array(passwordLength + 1).join("*"))

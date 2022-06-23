@@ -13,7 +13,14 @@ const LogInPage = () => {
   useEffect( () => {
     fetch("http://127.0.0.1:8080/list_all_users")
       .then(response => response.json())
-      .then(data => setUsers(data))
+      .then(data => {setUsers(data)
+        const loggedInUser = users.filter(
+          user => user.userLoggedIn
+        )
+        if (loggedInUser.length > 0){
+          window.location.replace("http://localhost:3000/feedPage")
+        }
+      })
       .catch(err => console.log(err))
   })
 
@@ -23,6 +30,7 @@ const LogInPage = () => {
 
 
   const checkLogInDetails = (event) => {
+    event.preventDefault();
     const [...userNamesArray] = users.map(user => user.name)
 
     if(userNamesArray.includes(username)){
@@ -45,6 +53,8 @@ const LogInPage = () => {
 
     fetch(`http://127.0.0.1:8080/logUserIn?username=${username}&password=${password}`, options)
       .catch(err => console.log(err))
+
+    window.location.replace("http://localhost:3000/feedPage")
   }
 
   const wrongPassword = (event) => {
