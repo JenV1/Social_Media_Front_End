@@ -1,5 +1,21 @@
 .FeedPage {
-    background-color: #FCF8E8;
+    position: relative;
+    background: var(--background-color);
+    z-index: -1;
+}
+
+.FeedPage::before{
+    background-image: var(--background-image);
+    content: "";
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    display: block;
+    opacity: 0.1;
+    z-index: -1;
+
 }
 
 .white-space {

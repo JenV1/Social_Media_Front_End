@@ -1,10 +1,13 @@
-#LandingPage {
-    
-    background-color: #FCF8E8;
-    font-size: 250px;
 
+  
+  #LandingPage {
+    
+    font-size: 250px;
+  position: relative;
+  z-index: 20;
 
 }
+
 
 h1{
     color: #515E63;
@@ -23,19 +26,75 @@ h1{
     background: #789395;
     padding: 20px 20px 20px 20px;
     text-decoration: none;
-    display: block-inline;
+    display: inline-block;
+    position: relative;
+    z-index: 20;
   }
   
   #btn:hover {
     background: #E5E3C9;
     text-decoration: none;
+    position: relative;
+    z-index: 20;
 
   }
 
   #landing-button{
-    background-color: #FCF8E8;
     text-align: center;
     padding: 200px;
-
-
+    z-index: 20;
+    position: relative;
+    opacity: 1;
+    animation: scaleUp 1s 2s;
+    transform: scale(0);
+    animation-fill-mode: forwards;
   }
+
+  
+#landing-link{
+  position: relative;
+  z-index: 20;
+}
+
+.landing-page--content{
+    position: relative;
+    background: var(--background-color);
+    z-index: -10;
+  }
+
+  .landing-page--content::before{
+    background-image: var(--background-image);
+    content: "";
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    display: block;
+    opacity: 0.1;
+    z-index: -10;
+  }
+
+.welcome{
+  font-size: 0;
+  animation: grow 1s 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes grow {
+  from{
+    font-size: 0;
+  }
+  to{
+    font-size: 6rem;
+  }
+}
+
+@keyframes scaleUp {
+  from{
+    transform: scale(0);
+  }
+  to{
+    transform: scale(1);
+  }
+}

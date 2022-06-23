@@ -16,14 +16,14 @@ const LandingPage = () => {
   }
 
 return (
-  <div >
+  <div className='landing-page--content'>
     <div><Header /></div>
     <div id='LandingPage'>
-      <h1 style={adjustLanding}>Welcome!</h1>
+      <h1 className="welcome" style={adjustLanding}>Welcome!</h1>
     </div>
     <div id='landing-button'>
-    <a href="http://localhost:3000/login">
-    <button id='btn' type='button' >Log In / Register</button>
+    <a id="landing-link" href="http://localhost:3000/login">
+    <button onClick={() => console.log("clicked")} id='btn' type='button' >Log In / Register</button>
     </a>
     
     </div>

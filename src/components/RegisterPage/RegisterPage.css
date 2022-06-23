@@ -10,11 +10,28 @@
     animation: swoopInLeft 1s .2s;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
-    transform: translateX(-100%)
+    transform: translateX(-100%);
 }
 
 .registerpage--content{
-    background-color: #E5E3C9;
+    background-color: var(--background-color);
+    position: relative;
+    z-index: -1;
+
+}
+
+.registerpage--content::before{
+    content: "";
+    background-image: var(--background-image);
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    display: block;
+    opacity: 0.1;
+    z-index: -1;
+
 }
 
 #registerPage--form{
