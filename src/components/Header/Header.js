@@ -32,6 +32,12 @@ const Header = (props) => {
       width: "250px",
     }
 
+  const navLinkStyle = {
+    paddingTop: "16px",
+    paddingBottom: "0px",
+    paddingLeft: "15px",
+  }
+
 
   const openNav = () =>{
       setWantOpen(true)
@@ -77,7 +83,7 @@ const Header = (props) => {
         </div>
         
         <div id='mySidenav' className = "sidenav" style =  {wantOpen ?  sideNavOpenStyle :sideNavCloseStyle} >
-          <a href= "#" className="closebtn" onClick= {closeNav} >&times;</a>
+          <a href= "#" className="closebtn" onClick= {closeNav}  >&times;</a>
           <a href="http://localhost:3000/login">Log In Again</a>
           <a href="http://localhost:3000" onClick={handleClickLogOut}>Log Out</a>
           <a href="http://localhost:3000/settings">Setting</a>
@@ -91,23 +97,19 @@ const Header = (props) => {
   
   
 
-
-
-
-
-
 return (
   <header >
     <Navbar expand="lg" className="Header"  >
       <Container className='nav-position'>
-        <Navbar.Brand href="http://localhost:3000">Connect</Navbar.Brand>
+        <Navbar.Brand href="http://localhost:3000" style = {{fontSize: "30px"}}>Fakebook</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto" >
-            <Nav.Link href="#home" className='nav-link'>Insights</Nav.Link>
-            <Nav.Link href="#link" className='nav-link'>Services</Nav.Link>
-            <Nav.Link href="#link" className='nav-link'>About Us</Nav.Link>
-            <NavDropdown title="Careers" id="basic-nav-dropdown" className='nav-link'>
+            <Nav.Link href="#home" className='nav-link' style = {navLinkStyle}>Insights</Nav.Link>
+            <Nav.Link href="#link" className='nav-link' style = {navLinkStyle}>Services</Nav.Link>
+            <Nav.Link href="#link" className='nav-link' style = {navLinkStyle}>Services</Nav.Link>
+            <Nav.Link href="#link" className='nav-link' style = {navLinkStyle}>About Us</Nav.Link>
+            <NavDropdown title="Careers" id="nav-link" className='nav-link'>
               <NavDropdown.Item href="#action/3.1">How to join us</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
               </NavDropdown.Item>
