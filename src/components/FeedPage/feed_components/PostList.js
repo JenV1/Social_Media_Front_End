@@ -180,16 +180,21 @@ const PostList = () => {
 
 
     return (
-        <>
+        <>  
             <div className="button-and-post-container">
-                <button className="business-btn" onClick={handleFilterByBusiness}>Business Posts Only</button>
-                <AddNewPost user={user} nextID={nextPostID} />
-            </div>
-            
+
+            <button className="business-btn" onClick={handleFilterByBusiness}>Filter By Business</button>
+
 
             <div className="search-bar">
             <input className = "search-input" type="text" placeholder = "Search Posts" value={searchPosts} onChange={handleSearchPostChange}/>
             </div>
+                
+                <AddNewPost user={user} nextID={nextPostID} />
+            </div>
+            
+
+            
             
             {/* <div className="search-bar">
                 <input className = "search-input" type="text" placeholder = "Input keyword here..." onChange={handleChangeByKeyword} />
@@ -208,7 +213,7 @@ const PostList = () => {
             <div className="post-container">
                 {
                     posts.map(post => {
-                        if ((post.businessAccount && filteredByBusiness) || !filteredByBusiness && post.content_text.toLowerCase().includes(searchPosts) ) {
+                        if (((post.businessAccount && filteredByBusiness) || !filteredByBusiness) && post.content_text.toLowerCase().includes(searchPosts) ) {
                             return <li className="post-item" key={post.id}>
                                 <span className="post"><Posts post={post} user={user} comments={comments.filter(comment => comment.post.id === post.id)}/></span>
                             </li>

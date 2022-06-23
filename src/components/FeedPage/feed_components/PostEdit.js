@@ -14,6 +14,13 @@ const PostEdit = ({post, changePost, turnOffEditing}) => {
             method: 'PUT',
             body: newPostContent
         })
+        .then(response => {
+            window.scroll({
+                top: document.body.offsetHeight,
+                left: 0, 
+                behavior: 'smooth',
+              });
+        })
         .then(response => {changePost(newPostContent)})
 
         turnOffEditing();

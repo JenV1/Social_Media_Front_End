@@ -29,11 +29,12 @@ const AddNewPost = ({nextID, user}) => {
     return (
         <>
             <form onSubmit={createNewPost} className="add-post-form">
+                <div className="form-container">
                 <label>
                     <input className="input-content" type="text" name="content" onChange={handleContentChange} placeholder="What's on your mind?"/>
                 </label>
                 <label className="event-dropdown" name="post_type" onChange={handlePostTypeChange}>
-                    <select>
+                    <select className='select'>
                         <option value="">Choose a post type!</option>
                         <option value="1">ADVERTISEMENT</option>
                         <option value="2">EVENT</option>
@@ -42,7 +43,9 @@ const AddNewPost = ({nextID, user}) => {
                         <option value="5">EVENT PLAN</option>
                     </select>
                 </label>
+                
             <input type="submit" value="Post" className='btn'/>
+            </div>
 
             </form>
         </>
