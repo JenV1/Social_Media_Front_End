@@ -15,7 +15,7 @@ import './Footer.css';
         <MDBContainer fluid className="text-center text-md-left">
           <MDBRow>
             <MDBCol md="6">
-              <h5 className='footer-text' >Fakebook </h5>
+              <h5 className='footer-text'>FakeBook </h5>
               <p id = "footer-intro">
                 Meet new and interesting friends nearby
               </p>

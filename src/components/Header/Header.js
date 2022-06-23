@@ -100,7 +100,7 @@ return (
   <header >
     <Navbar expand="lg" className="Header"  >
       <Container className='nav-position'>
-        <Navbar.Brand href="http://localhost:3000" style = {{fontSize: "30px"}}>Fakebook</Navbar.Brand>
+        <Navbar.Brand href="http://localhost:3000" style = {{fontSize: "30px", fontFamily: 'Kdam Thmor Pro'}}>FakeBook</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto" >
@@ -119,7 +119,7 @@ return (
               </NavDropdown.Item>
             </NavDropdown>
 
-            {props.open === "true" && <EarthOrNot />}
+        
             
           </Nav>
         </Navbar.Collapse>
