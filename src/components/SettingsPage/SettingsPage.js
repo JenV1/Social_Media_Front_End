@@ -64,7 +64,7 @@ const SettingsPage = () => {
 
   //what is actually rendered on the page - depends on the truth values of the display fields
   return(
-  <>
+  <div className="settings-page--content">
     <Header open="true" />
     <div className="SettingsPage">
       <h1>Settings</h1>
@@ -78,7 +78,7 @@ const SettingsPage = () => {
       </div>
     </div>
     <Footer />
-  </>
+  </div>
 )};
 
 export default SettingsPage;

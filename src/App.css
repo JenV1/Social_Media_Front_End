@@ -37,3 +37,18 @@
     transform: rotate(360deg);
   }
 } */
+
+.content{
+  position: relative;
+  z-index: -30;
+}
+
+#root{
+  position: relative;
+  z-index: -30;
+}
+
+body{
+  z-index: -30;
+  position: relative;
+}
