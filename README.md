@@ -4,6 +4,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Tagline: A Social media platform for young professionals
 
+## Wireframe
+
+Our wireframe for this project is included here: 
+
+![Wireframe ](Wireframe.png)
+
 ## Tech Stack
 
 This project was built using:

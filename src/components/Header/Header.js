@@ -12,6 +12,7 @@ const Header = (props) => {
   //flase means close the side nav, and true means want open the side nav
 
   const [wantOpen, setWantOpen] = useState(false);
+ 
 
   //check if show the earth
 
@@ -48,6 +49,7 @@ const Header = (props) => {
 
 
   const [users, setUsers] = useState([]);
+
   useEffect( () => {
     fetch("http://127.0.0.1:8080/list_all_users")
       .then(response => response.json())
@@ -86,7 +88,6 @@ const Header = (props) => {
         
         {/* <div id='mySidenav' className = "sidenav" style =  {wantOpen ?  sideNavOpenStyle :sideNavCloseStyle} >
           <a href= "#" className="closebtn" onClick= {closeNav}  >&times;</a>
-          <a href="http://localhost:3000/login">Log In Again</a>
           <a href="http://localhost:3000" onClick={handleClickLogOut}>Log Out</a>
           <a href="http://localhost:3000/settings">Setting</a>
           <a href="http://localhost:3000/feedPage">Posts</a>
@@ -96,8 +97,6 @@ const Header = (props) => {
       </> )
       }
 
-  
-  
 
 return (
   <header >
