@@ -121,8 +121,14 @@ return (
               </NavDropdown.Item>
             </NavDropdown>
 
-        
-            
+            <div id='earthButton'>
+              <NavDropdown title="&#127759;"  className='nav-link'>
+               <NavDropdown.Item href="http://localhost:3000" onClick={handleClickLogOut}>Log Out</NavDropdown.Item>
+               <NavDropdown.Item href="http://localhost:3000/settings">Settings</NavDropdown.Item>
+               <NavDropdown.Item href="http://localhost:3000/feedPage">Posts</NavDropdown.Item>
+              </NavDropdown>
+             </div>
+
           </Nav>
         </Navbar.Collapse>
       </Container>
