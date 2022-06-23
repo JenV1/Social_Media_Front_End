@@ -71,7 +71,7 @@ const Header = (props) => {
     fetch(`http://localhost:8080/logUserOut?username=${userName}&password=${password}`, requestOptions)
       .then(result => {
         console.log(`log out ${userName}`)
-        alert(`ByeBye${userName}`)})
+        alert(`Bye ${userName}!`)})
       .catch(error => console.log(error))
   
   }
