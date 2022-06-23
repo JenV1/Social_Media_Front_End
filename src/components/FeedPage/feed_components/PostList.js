@@ -210,7 +210,7 @@ const PostList = () => {
                     posts.map(post => {
                         if ((post.businessAccount && filteredByBusiness) || !filteredByBusiness && post.content_text.toLowerCase().includes(searchPosts) ) {
                             return <li className="post-item" key={post.id}>
-                                <p className="post"><Posts post={post} user={user} comments={comments.filter(comment => comment.post.id === post.id)}/></p>
+                                <span className="post"><Posts post={post} user={user} comments={comments.filter(comment => comment.post.id === post.id)}/></span>
                             </li>
                         }
                     })
