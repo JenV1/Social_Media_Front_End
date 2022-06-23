@@ -22,6 +22,9 @@ const PostList = () => {
             const loggedInUser = apiUsers.filter(
                 user => user.userLoggedIn
             )
+            if (loggedInUser.length == 0){
+                window.location.replace("http://localhost:3000/")
+              }
             setUser(loggedInUser[0])
         })
         .catch(error => console.log(error))
