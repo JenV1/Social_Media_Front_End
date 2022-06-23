@@ -11,11 +11,7 @@
     transform: translateX(-100%);
 }
 
-.loginpage--content{
-    position: relative;
-    background: var(--background-color);
-    z-index: -1;
-}
+
 
 .input-box{
     display: block;
@@ -53,6 +49,13 @@
 :root{
     --background-image: url("https://images.pexels.com/photos/1534925/pexels-photo-1534925.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
     --background-color: rgb(229,227,201);
+}
+
+
+.loginpage--content{
+    position: relative;
+    background: var(--background-color);
+    z-index: -1;
 }
 
 .loginpage--content::before{

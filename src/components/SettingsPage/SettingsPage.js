@@ -43,7 +43,7 @@ const SettingsPage = () => {
         setHiddenPassword(new Array(passwordLength + 1).join("*"))
       })
       .catch(error => console.log(error))   
-  }, [])
+  }, [user])
 
   const [showUserInformation, setShowUserInformation ] = useState(true);
   const [showUpdateDetailsButton, setShowUpdateDetailsButton] = useState(true);
