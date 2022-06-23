@@ -4,6 +4,7 @@ import './LandingPage.css';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import LogInPage from '../LogInPage/LogInPage';
+import HeaderForLanding from '../Header/HeaderForLanding';
 
 import { Link } from "react-router-dom";
 
@@ -17,7 +18,7 @@ const LandingPage = () => {
 
 return (
   <div className='landing-page--content'>
-    <div><Header /></div>
+    <div><HeaderForLanding /></div>
     <div id='LandingPage'>
       <h1 className="welcome" style={adjustLanding}>Welcome!</h1>
     </div>

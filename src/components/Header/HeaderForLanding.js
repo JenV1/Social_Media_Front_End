@@ -8,11 +8,10 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-const Header = (props) => {
+const HeaderForLanding = (props) => {
   //flase means close the side nav, and true means want open the side nav
 
   const [wantOpen, setWantOpen] = useState(false);
- 
 
   //check if show the earth
 
@@ -49,7 +48,6 @@ const Header = (props) => {
 
 
   const [users, setUsers] = useState([]);
-
   useEffect( () => {
     fetch("http://127.0.0.1:8080/list_all_users")
       .then(response => response.json())
@@ -71,7 +69,7 @@ const Header = (props) => {
     fetch(`http://localhost:8080/logUserOut?username=${userName}&password=${password}`, requestOptions)
       .then(result => {
         console.log(`log out ${userName}`)
-        alert(`Bye ${userName}!`)})
+        alert(`ByeBye${userName}`)})
       .catch(error => console.log(error))
   
   }
@@ -88,6 +86,7 @@ const Header = (props) => {
         
         {/* <div id='mySidenav' className = "sidenav" style =  {wantOpen ?  sideNavOpenStyle :sideNavCloseStyle} >
           <a href= "#" className="closebtn" onClick= {closeNav}  >&times;</a>
+          <a href="http://localhost:3000/login">Log In Again</a>
           <a href="http://localhost:3000" onClick={handleClickLogOut}>Log Out</a>
           <a href="http://localhost:3000/settings">Setting</a>
           <a href="http://localhost:3000/feedPage">Posts</a>
@@ -97,12 +96,14 @@ const Header = (props) => {
       </> )
       }
 
+  
+  
 
 return (
   <header >
     <Navbar expand="lg" className="Header"  >
       <Container className='nav-position'>
-        <Navbar.Brand href="http://localhost:3000" style = {{fontSize: "30px", fontFamily: 'Kdam Thmor Pro'}}>FakeBook</Navbar.Brand>
+        <Navbar.Brand href="http://localhost:3000" style = {{fontSize: "30px"}}>Fakebook</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto" >
@@ -121,7 +122,7 @@ return (
               </NavDropdown.Item>
             </NavDropdown>
 
-        
+            {/* {props.open === "true" && <EarthOrNot />} */}
             
           </Nav>
         </Navbar.Collapse>
@@ -134,10 +135,10 @@ return (
 
 
 
-Header.propTypes = {};
+HeaderForLanding.propTypes = {};
 
-Header.defaultProps = {};
+HeaderForLanding.defaultProps = {};
 
 
-export default Header;
+export default HeaderForLanding;
 
