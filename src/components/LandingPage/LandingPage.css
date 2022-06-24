@@ -45,7 +45,7 @@ h1{
     z-index: 20;
     position: relative;
     opacity: 1;
-    animation: scaleUp 1s 2s;
+    animation: scaleUp .5s 1.5s;
     transform: scale(0);
     animation-fill-mode: forwards;
   }
@@ -77,7 +77,7 @@ h1{
 
 .welcome{
   font-size: 0;
-  animation: grow 1s 1s;
+  animation: grow 1s .5s;
   animation-fill-mode: forwards;
 }
 
