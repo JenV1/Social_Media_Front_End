@@ -109,7 +109,6 @@ return (
           <Nav className="me-auto" >
             <Nav.Link href="#home" className='nav-link' style = {navLinkStyle}>Insights</Nav.Link>
             <Nav.Link href="#link" className='nav-link' style = {navLinkStyle}>Services</Nav.Link>
-            <Nav.Link href="#link" className='nav-link' style = {navLinkStyle}>Services</Nav.Link>
             <Nav.Link href="#link" className='nav-link' style = {navLinkStyle}>About Us</Nav.Link>
             <NavDropdown title="Careers" id="nav-link" className='nav-link'>
               <NavDropdown.Item href="#action/3.1">How to join us</NavDropdown.Item>
